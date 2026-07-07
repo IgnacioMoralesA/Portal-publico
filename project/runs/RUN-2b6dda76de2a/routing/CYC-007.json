@@ -1,0 +1,9 @@
+{
+  "order": 7,
+  "phase": "tasks",
+  "agents": [
+    "agent.architect_plan",
+    "agent.tests_coverage",
+    "agent.doc_tecnica_detalle"
+  ]
+}

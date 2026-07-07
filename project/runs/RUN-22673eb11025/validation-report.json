@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "agents": 27,
+  "complete": 27,
+  "needs_user_input": 0,
+  "token_budget_ok": true
+}

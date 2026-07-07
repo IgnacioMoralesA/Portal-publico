@@ -1,0 +1,22 @@
+[
+  {
+    "id": "NOT-001",
+    "institucion": "Servicio Demo de Beneficios",
+    "titulo": "Aviso de beneficio local disponible",
+    "estado": "pendiente",
+    "fechaRecepcion": "2026-07-05 09:30",
+    "prioridad": "media",
+    "categoria": "informativa",
+    "contenido": "Contenido ficticio seguro para validar el detalle local de una notificacion demo."
+  },
+  {
+    "id": "NOT-002",
+    "institucion": "Unidad Demo de Tramites",
+    "titulo": "Recordatorio de tramite simulado",
+    "estado": "pendiente",
+    "fechaRecepcion": "2026-07-04 16:20",
+    "prioridad": "alta",
+    "categoria": "recordatorio",
+    "contenido": "Mensaje local de prueba sin documentos reales, datos personales reales ni enlaces productivos."
+  }
+]

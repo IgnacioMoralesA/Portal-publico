@@ -1,0 +1,27 @@
+{
+  "id": "USR-001",
+  "nombre": "Persona de prueba",
+  "runEnmascarado": "12.345.***-*",
+  "correo": "persona@example.cl",
+  "telefono": "+56 9 1234 5678",
+  "claveUnicaEstado": "activa demo",
+  "segundoFactorActivo": true,
+  "sesionesActivas": 3,
+  "demoAuth": {
+    "usuario": "demo.claveunica",
+    "clave": "DemoLocal2026",
+    "otp": "123456"
+  },
+  "personalSecurity": {
+    "metodo": "codigo demo",
+    "codigoDemo": "123456"
+  },
+  "ddu": {
+    "estado": "pendiente",
+    "domicilio": "Domicilio Digital Único pendiente de confirmación",
+    "alertaPendiente": true,
+    "fechaConfiguracion": "",
+    "canal": "",
+    "casillaDemo": ""
+  }
+}

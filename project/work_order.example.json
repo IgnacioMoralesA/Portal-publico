@@ -1,0 +1,22 @@
+{
+  "work_order_id": "WO-CLAVEUNICA-001",
+  "objective": "Construir una fábrica ARNES SDD para el Portal Ciudadano de ClaveÚnica usando bases, anexos y requerimientos funcionales.",
+  "economy_mode": true,
+  "sources": [
+    "source-manifest.json",
+    "ESPECIFICACION_REPLICA_FABRICA.md",
+    "especificacion_requerimientos_funcionales.md"
+  ],
+  "constraints": [
+    "Economizar tokens por defecto.",
+    "No reinyectar documentos completos.",
+    "Mantener trazabilidad por source_id y CU/FUN/RN/CH/EX.",
+    "Separar anexos administrativos de requisitos funcionales."
+  ],
+  "acceptance": [
+    "La fábrica ejecuta ruta SDD.",
+    "Produce context-pack y evidence-register.",
+    "Incluye agente token_economizer y budget gate.",
+    "Genera matriz de trazabilidad."
+  ]
+}

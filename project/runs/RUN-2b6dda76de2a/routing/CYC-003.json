@@ -1,0 +1,7 @@
+{
+  "order": 3,
+  "phase": "checklist",
+  "agents": [
+    "agent.qa_checklist"
+  ]
+}

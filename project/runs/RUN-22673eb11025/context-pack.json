@@ -1,0 +1,104 @@
+{
+  "objective": "Construir el Portal Ciudadano de ClaveÚnica según requerimientos funcionales y anexos",
+  "economy_mode": true,
+  "max_context_tokens": 3500,
+  "estimated_tokens": 1764,
+  "within_budget": true,
+  "source_manifest": [
+    {
+      "source_id": "S00",
+      "filename": "ESPECIFICACION_REPLICA_FABRICA.md",
+      "description": "Especificación para replicar la fábrica ARNES SDD",
+      "sha256": "ce0522126ad006da7ec1800157d0cef3c18a42a09589f35fcbf97b01cec9e7d8",
+      "bytes": 23889,
+      "copied_to_project_input": true
+    },
+    {
+      "source_id": "S01",
+      "filename": "Rex._N°997-2023_aprueba_bases-mp.pdf",
+      "description": "Bases administrativas, técnicas y anexos",
+      "sha256": "ffe3eeb0b02ff64633b2d40c8b46a23d2fc19acab7e663a2e2b2be4bc861dfd3",
+      "bytes": 12679631,
+      "copied_to_project_input": false
+    },
+    {
+      "source_id": "S02",
+      "filename": "ANEXO_N°3.docx",
+      "description": "Oferta económica",
+      "sha256": "4d01581e61ba287491439fa43bff015f8d2257d8b87b05eeab34b25c95adbd6c",
+      "bytes": 21338,
+      "copied_to_project_input": false
+    },
+    {
+      "source_id": "S03",
+      "filename": "ANEXO_N°4.docx",
+      "description": "Presentación equipo de trabajo",
+      "sha256": "8e6bdaaaaa2cdee938f2099b7b79fedbf108322ebd510cef39df7e705d1e9e43",
+      "bytes": 23580,
+      "copied_to_project_input": false
+    },
+    {
+      "source_id": "S04",
+      "filename": "ANEXO_N°5.docx",
+      "description": "Experiencia del oferente",
+      "sha256": "6732d1fa6559ae4759511057f3326c91aa3a9b42ad7f5db7186f4354a69992bb",
+      "bytes": 24241,
+      "copied_to_project_input": false
+    },
+    {
+      "source_id": "S05",
+      "filename": "ANEXO_N°6.docx",
+      "description": "Presentación oferta técnica",
+      "sha256": "f2f91b7ac7f46f176d0deea560abc73dc972422d335301f84b7f7472d442294b",
+      "bytes": 23724,
+      "copied_to_project_input": false
+    },
+    {
+      "source_id": "S06",
+      "filename": "ANEXO_N°7.pdf",
+      "description": "Historias de usuario referenciales",
+      "sha256": "75fb2d981e94cebfef0584cfd2ada51f09ae3ed2584d248596bcc14a6385cd64",
+      "bytes": 176530,
+      "copied_to_project_input": false
+    },
+    {
+      "source_id": "S07",
+      "filename": "ANEXO_N°8.pdf",
+      "description": "Flujo de integración ClaveÚnica y Plataforma de Notificaciones",
+      "sha256": "937ceea03c672d9d8519ec2a7792ded17745307de403d7ff57ae31ae220e4f62",
+      "bytes": 256387,
+      "copied_to_project_input": false
+    },
+    {
+      "source_id": "S08",
+      "filename": "especificacion_requerimientos_funcionales.md",
+      "description": "Especificación de requerimientos funcionales generada",
+      "sha256": "8486a1e13c1a86f0f4b55d013aba9fc575966ea4c6003fa07ba02e12eeb5ee6a",
+      "bytes": 140221,
+      "copied_to_project_input": true
+    }
+  ],
+  "excerpts": [
+    {
+      "filename": "source-manifest.json",
+      "excerpt": "[\n{\n\"source_id\": \"S00\",\n\"filename\": \"ESPECIFICACION_REPLICA_FABRICA.md\",\n\"description\": \"Especificación para replicar la fábrica ARNES SDD\",\n\"sha256\": \"ce0522126ad006da7ec1800157d0cef3c18a42a09589f35fcbf97b01cec9e7d8\",\n\"bytes\": 23889,\n\"copied_to_project_input\": true\n},\n{\n\"source_id\": \"S01\",\n\"filename\": \"Rex._N°997-2023_aprueba_bases-mp.pdf\",\n\"description\": \"Bases administrativas, técnicas y anexos\",\n\"sha256\": \"ffe3eeb0b02ff64633b2d40c8b46a23d2fc19acab7e663a2e2b2be4bc861dfd3\",\n\"bytes\": 12679631,\n\"copied_to_project_input\": false\n},\n{\n\"source_id\": \"S02\",\n\"filename\": \"ANEXO_N°3.docx\",\n\"description\": \"Oferta económica\",\n\"sha256\": \"4d01581e61ba287491439fa43bff015f8d2257d8b87b05eeab34b25c95adbd6c\",\n\"bytes\": 21338,\n\"copied_to_project_input\": false\n},\n{\n\"source_id\": \"S03\",\n\"filename\": \"ANEXO_N°4.docx\",\n\"description\": \"Presentación equipo de trabajo\",\n\"sha256\": \"8e6bdaaaaa2cdee938f2099b7b79fedbf108322ebd510cef39df7e705d1e9e43\",",
+      "estimated_tokens": 233
+    },
+    {
+      "filename": "ESPECIFICACION_REPLICA_FABRICA.md",
+      "excerpt": "# Especificacion para replicar la Fabrica Web ARNES SDD\nFecha de analisis: 2026-06-18\n## 1. Proposito\n- Work orders estrictos.\n- Registro versionado de agentes, skills y herramientas.\n- Ejecucion unica por `HarnessRunner.run_agent(agent_id, state)`.\n- Evidencia trazable por `context-pack.json` y `evidence-register.json`.\n- Memoria aislada por fabrica, proyecto y agente.\n- Gates de schema, evidencia, policy, safety, consistencia, cobertura, budget, tool output y formato final.\n- Observabilidad en JSONL, ledger de consumo y reportes de cierre.\nEstado actual observado:\n- Version de fabrica: `1.0.0`.\n- Nombre: `Fabrica_Web_ARNES_SDD`.\n- Paquete principal: `factory/`.\n- Proyecto activo: `project/`.\n- Ultimo run registrado: `project/runs/RUN-bacb52f15124`.\n- Verificacion del ultimo run: `complete`.\n- Agentes registrados: 13.\n- Skills registradas: 15.\n- Tools registradas: 27.\n## 2. Estructura actual\n```text\n.\n|-- Aprendizaje.md\n|-- factory/\n|   |-- __init__.py\n|   |-- agents.py\n|   |-- cli.py\n|   |-- constants.py\n|   |-- context.py\n- `factory/`\n- `tests/`\n- `Aprendizaje.md`\n- Opcionalmente `project/README.md` como plantilla minima\n- `factory/__pycache__/`\n- `tests/__pycache__/`\n- `.pytest_cache/`\n- `project/runs/`\n- `project/cache/`\n- `project/index/`\n- `project/PROYECTO_CINCO_APP/` salvo que se quiera conservar la app de ejemplo\n- `project/PROYECTO CINCO/` salvo que se quiera conservar el brief de ejemplo",
+      "estimated_tokens": 356
+    },
+    {
+      "filename": "especificacion_requerimientos_funcionales.md",
+      "excerpt": "## Control de generación\n* status: complete\n* documentos_analizados: 7 documentos cargados por el usuario, inventariados como S01-S07.\n* criterios_de_exclusion: stack tecnológico omitido\n| source_id | Documento | Tipo | Páginas/secciones legibles | Uso en la especificación |\n|---|---|---|---|---|\n| S02 | ANEXO_N°3.docx | DOCX | Sección Oferta Económica; tabla de valores; legible. | No genera requisitos funcionales del sistema; usado para exclusión trazable. |\n| S05 | ANEXO_N°6.docx | DOCX | Contenido de oferta técnica; legible. | Antecedentes, alcance, metodología, entregables, aseguramiento de calidad y garantía. |\n| source_id | hash_sha256_corto |\n|---|---|\n| S01 | ffe3eeb0b02ff646 |\n| S02 | 4d01581e61ba2874 |\n| S03 | 8e6bdaaaaa2cdee9 |\n| S04 | 6732d1fa6559ae47 |\n| S05 | f2f91b7ac7f46f17 |\n| S06 | 75fb2d981e94cebf |\n| S07 | 937ceea03c672d9d |\n## 1. Descripción del sistema de software\n## 2. Objetivo principal\n## 3. Objetivos específicos\n- **OBJ_001:** Enriquecer la experiencia de uso mediante una nueva versión del portal con interfaz más intuitiva y segura. Evidencia: E04/S01:p.37.\n- **OBJ_002:** Centralizar información de las personas para facilitar acceso y gestión de información relacionada con el Estado. Evidencia: E02/S01:p.35; E04/S01:p.37.\n- **OBJ_003:** Agregar factores de seguridad en flujos críticos como login, recuperación y cambio de datos de contacto. Evidencia: E04/S01:p.37; E05/S01:p.39; E08/S06:p.1:HU02-HU03.\n- **OBJ_004:** Facilitar acceso a notificaciones electrónicas de procedimientos administrativos mediante DDU y Plataforma de Notificaciones. Evidencia: E01/S01:p.2; E10-E11; E14/S07:p.1.\n- **OBJ_005:** Facilitar control y visibilidad de autorizaciones de uso de datos sensibles entre instituciones públicas. Evidencia: E03/S01:p.36; E12-E13.\n- **OBJ_006:** Fortalecer ayuda pública y ayuda a instituciones integradas, incluyendo credenciales y estado de integraciones. Evidencia: E03/S01:p.36; E05/S01:p.39.\n- **OBJ_007:** Definir flujos, prototipos, pruebas y prioridades de implementación para las interfaces resultantes. Evidencia: E03/S01:p.36; E04/S01:p.37-p.38; E07/S05.\n## 4. Perfiles de usuarios -> actores de casos de uso\n| actor_id | Perfil | Descripción | Casos de uso asociados | Evidencia |\n|---|---|---|---|---|\n| ACT_001 | Usuario público del portal ClaveÚnica | Persona que accede al portal público, con o sin ClaveÚnica activada. | CU_001, CU_003, CU_020 | E08/S06:p.1:HU01-HU03; E05/S01:p.39 |\n| ACT_002 | Usuario con ClaveÚnica activada | Persona autenticada que puede administrar datos, sesión, 2FA, notificaciones y autorizaciones. | CU_002-CU_016, CU_017-CU_019 | E08/S06:p.1:HU02-HU04; E09-E13 |\n| ACT_003 | Usuario sin DDU configurado | Usuario autenticado cuyo Domicilio Digital Único aún no está configurado. | CU_005, CU_006, CU_008, CU_009, CU_012 | E09/S06:p.2:HU05-HU06; E10/S06:p.3:HU08-HU09; E11/S06:p.4:HU12; E14/S07:p.1 |\n| ACT_004 | Usuario con DDU configurado | Usuario autenticado que ya configuró DDU y puede visualizar notificaciones pendientes. | CU_007, CU_009-CU_011 | E09/S06:p.2:HU07; E10/S06:p.3:HU09-HU10; E11/S06:p.4:HU11; E14/S07:p.1 |\n| ACT_005 | Usuario con autorizaciones pendientes | Usuario que tiene solicitudes de autorización de uso de datos sensibles pendientes de decisión. | CU_013, CU_015 | E12/S06:p.5:HU13; E13/S06:p.6:HU15 |\n| ACT_006 | Usuario con autorizaciones vigentes | Usuario que tiene autorizaciones aprobadas/vigentes susceptibles de revocación. | CU_013, CU_016 | E12/S06:p.5:HU13; E13/S06:p.6-p.7:HU16 |\n| ACT_007 | Funcionario de institución integrada | Usuario institucional que requiere ayuda, credenciales y estado de integración a ClaveÚnica. | CU_021 | E03/S01:p.36; E05/S01:p.39 |\n| ACT_008 | Plataforma de Notificaciones/CasillaÚnica | Sistema externo funcional que configura DDU, mantiene notificaciones y muestra detalle al usuario. | CU_005-CU_012 | E09-E11; E14/S07:p.1 |\n| ACT_009 | Autorizador Ciudadano | Componente/servicio funcional asociado a solicitudes, historial, aprobación, rechazo y revocación de uso de datos sensibles. | CU_013-CU_016 | E05/S01:p.39; E12-E13 |\n| ACT_010 | Portal ClaveÚnica | Sistema invocador que autentica, consulta estados, muestra secciones y deriva/recibe retorno de plataformas relacionadas. | CU_001-CU_021 | E01-E05; E08-E14 |\n## 5. Descripción de casos de uso con ID CU_X\n- **ID:** CU_001\n- **Nombre:** Consultar portal público de ClaveÚnica\n- **Descripción:** Permitir que cualquier usuario acceda a un sitio público con opciones disponibles de activación, autenticación y recuperación, más novedades e información de ayuda.\n- **Relación jerárquica:** Raíz; agrupa FUN_001-FUN_003.\n...[compactado por presupuesto de tokens]",
+      "estimated_tokens": 1175
+    }
+  ],
+  "token_rules": [
+    "Usar IDs de evidencia antes que citas largas.",
+    "No reenviar documentos completos a agentes.",
+    "Pedir sólo chunks específicos si falta información.",
+    "Producir delta de archivos y salidas acotadas."
+  ]
+}

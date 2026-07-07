@@ -1,0 +1,738 @@
+[
+  {
+    "agent_id": "agent.spec_detallada",
+    "phase": "specify",
+    "status": "complete",
+    "outputs": {
+      "summary": "Portal Ciudadano de ClaveÚnica con experiencia pública, privada, DDU, notificaciones, 2FA, sesiones y autorizaciones de datos sensibles.",
+      "must_cover": [
+        "CU_001-CU_021",
+        "FUN_001+",
+        "RN/CH/EX aplicables"
+      ],
+      "evidence": [
+        "S01",
+        "S06",
+        "S07",
+        "S08"
+      ],
+      "token_note": "Usar requerimientos ya deduplicados en S08; no releer anexos completos salvo brecha."
+    },
+    "evidence": [
+      "S01",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.spec_detallada",
+    "phase": "clarify",
+    "status": "complete",
+    "outputs": {
+      "summary": "Portal Ciudadano de ClaveÚnica con experiencia pública, privada, DDU, notificaciones, 2FA, sesiones y autorizaciones de datos sensibles.",
+      "must_cover": [
+        "CU_001-CU_021",
+        "FUN_001+",
+        "RN/CH/EX aplicables"
+      ],
+      "evidence": [
+        "S01",
+        "S06",
+        "S07",
+        "S08"
+      ],
+      "token_note": "Usar requerimientos ya deduplicados en S08; no releer anexos completos salvo brecha."
+    },
+    "evidence": [
+      "S01",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.qa_checklist",
+    "phase": "checklist",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.qa_checklist ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.context_rag",
+    "phase": "context",
+    "status": "complete",
+    "outputs": {
+      "summary": "Contexto mínimo curado desde manifest y especificación funcional.",
+      "context_strategy": "source_manifest + excerpts + IDs de evidencia",
+      "evidence": [
+        "context-pack.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.ocr_ui_analyst",
+    "phase": "context",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.ocr_ui_analyst ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.token_economizer",
+    "phase": "context",
+    "status": "complete",
+    "outputs": {
+      "summary": "Economía de tokens aplicada.",
+      "rules": [
+        "Máximo contexto por agente controlado por gate.",
+        "Reutilizar context-pack.json.",
+        "Citar source_id/chunk_id en vez de pegar texto largo.",
+        "Responder con deltas y listas breves."
+      ],
+      "estimated_total_tokens": 2864,
+      "within_budget": true,
+      "evidence": [
+        "TOKEN_ECONOMY_POLICY",
+        "context-pack.json"
+      ]
+    },
+    "evidence": [
+      "TOKEN_ECONOMY_POLICY",
+      "context-pack.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.architect_plan",
+    "phase": "plan",
+    "status": "complete",
+    "outputs": {
+      "summary": "Plan por módulos: portal público, autenticación/2FA, datos personales, sesiones, DDU/notificaciones, autorizaciones, ayuda institucional.",
+      "deliverables": [
+        "architecture.md",
+        "task-backlog.md",
+        "traceability-matrix.md"
+      ],
+      "evidence": [
+        "S08:CU_001-CU_021"
+      ]
+    },
+    "evidence": [
+      "S08:CU_001-CU_021"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.ui_web_modern",
+    "phase": "plan",
+    "status": "complete",
+    "outputs": {
+      "summary": "UX orientada a accesos claros: activar, autenticarse, recuperar, ayuda, novedades y secciones privadas.",
+      "screens": [
+        "Home pública",
+        "Login/2FA",
+        "Perfil",
+        "DDU",
+        "Notificaciones",
+        "Autorizaciones"
+      ],
+      "evidence": [
+        "S06:HU01-HU16",
+        "S07"
+      ]
+    },
+    "evidence": [
+      "S06:HU01-HU16",
+      "S07"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.api_security_docs",
+    "phase": "plan",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.api_security_docs ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.security_policy",
+    "phase": "plan_validation",
+    "status": "complete",
+    "outputs": {
+      "summary": "Controles principales: 2FA opcional/obligatorio si activo, validación para cambios de contacto, política multisesión y datos sensibles.",
+      "risks": [
+        "Secuestro de sesión",
+        "Cambio indebido de contacto",
+        "Autorizaciones no trazadas"
+      ],
+      "evidence": [
+        "S06:HU02-HU04",
+        "S08"
+      ]
+    },
+    "evidence": [
+      "S06:HU02-HU04",
+      "S08"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.qa_checklist",
+    "phase": "plan_validation",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.qa_checklist ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.token_economizer",
+    "phase": "plan_validation",
+    "status": "complete",
+    "outputs": {
+      "summary": "Economía de tokens aplicada.",
+      "rules": [
+        "Máximo contexto por agente controlado por gate.",
+        "Reutilizar context-pack.json.",
+        "Citar source_id/chunk_id en vez de pegar texto largo.",
+        "Responder con deltas y listas breves."
+      ],
+      "estimated_total_tokens": 2864,
+      "within_budget": true,
+      "evidence": [
+        "TOKEN_ECONOMY_POLICY",
+        "context-pack.json"
+      ]
+    },
+    "evidence": [
+      "TOKEN_ECONOMY_POLICY",
+      "context-pack.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.architect_plan",
+    "phase": "tasks",
+    "status": "complete",
+    "outputs": {
+      "summary": "Plan por módulos: portal público, autenticación/2FA, datos personales, sesiones, DDU/notificaciones, autorizaciones, ayuda institucional.",
+      "deliverables": [
+        "architecture.md",
+        "task-backlog.md",
+        "traceability-matrix.md"
+      ],
+      "evidence": [
+        "S08:CU_001-CU_021"
+      ]
+    },
+    "evidence": [
+      "S08:CU_001-CU_021"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.tests_coverage",
+    "phase": "tasks",
+    "status": "complete",
+    "outputs": {
+      "summary": "Pruebas funcionales, prototipo y accesibilidad, con evidencia de ejecución.",
+      "coverage_targets": [
+        "CU_001-CU_021",
+        "2FA",
+        "DDU",
+        "Notificaciones",
+        "Autorizaciones",
+        "Accesibilidad"
+      ],
+      "evidence": [
+        "S05",
+        "S08"
+      ]
+    },
+    "evidence": [
+      "S05",
+      "S08"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.doc_tecnica_detalle",
+    "phase": "tasks",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.doc_tecnica_detalle ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.qa_checklist",
+    "phase": "analyze",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.qa_checklist ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.security_policy",
+    "phase": "analyze",
+    "status": "complete",
+    "outputs": {
+      "summary": "Controles principales: 2FA opcional/obligatorio si activo, validación para cambios de contacto, política multisesión y datos sensibles.",
+      "risks": [
+        "Secuestro de sesión",
+        "Cambio indebido de contacto",
+        "Autorizaciones no trazadas"
+      ],
+      "evidence": [
+        "S06:HU02-HU04",
+        "S08"
+      ]
+    },
+    "evidence": [
+      "S06:HU02-HU04",
+      "S08"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.implementacion_doc_code",
+    "phase": "implement",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.implementacion_doc_code ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.tests_coverage",
+    "phase": "validate",
+    "status": "complete",
+    "outputs": {
+      "summary": "Pruebas funcionales, prototipo y accesibilidad, con evidencia de ejecución.",
+      "coverage_targets": [
+        "CU_001-CU_021",
+        "2FA",
+        "DDU",
+        "Notificaciones",
+        "Autorizaciones",
+        "Accesibilidad"
+      ],
+      "evidence": [
+        "S05",
+        "S08"
+      ]
+    },
+    "evidence": [
+      "S05",
+      "S08"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.security_policy",
+    "phase": "validate",
+    "status": "complete",
+    "outputs": {
+      "summary": "Controles principales: 2FA opcional/obligatorio si activo, validación para cambios de contacto, política multisesión y datos sensibles.",
+      "risks": [
+        "Secuestro de sesión",
+        "Cambio indebido de contacto",
+        "Autorizaciones no trazadas"
+      ],
+      "evidence": [
+        "S06:HU02-HU04",
+        "S08"
+      ]
+    },
+    "evidence": [
+      "S06:HU02-HU04",
+      "S08"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.qa_checklist",
+    "phase": "validate",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.qa_checklist ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.token_billing",
+    "phase": "observe",
+    "status": "complete",
+    "outputs": {
+      "summary": "Ledger de consumo estimado generado.",
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "evidence": [
+        "token-ledger.jsonl"
+      ]
+    },
+    "evidence": [
+      "token-ledger.jsonl"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.observability_sre",
+    "phase": "observe",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.observability_sre ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.token_economizer",
+    "phase": "observe",
+    "status": "complete",
+    "outputs": {
+      "summary": "Economía de tokens aplicada.",
+      "rules": [
+        "Máximo contexto por agente controlado por gate.",
+        "Reutilizar context-pack.json.",
+        "Citar source_id/chunk_id en vez de pegar texto largo.",
+        "Responder con deltas y listas breves."
+      ],
+      "estimated_total_tokens": 2864,
+      "within_budget": true,
+      "evidence": [
+        "TOKEN_ECONOMY_POLICY",
+        "context-pack.json"
+      ]
+    },
+    "evidence": [
+      "TOKEN_ECONOMY_POLICY",
+      "context-pack.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.doc_tecnica_detalle",
+    "phase": "close",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.doc_tecnica_detalle ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.token_billing",
+    "phase": "close",
+    "status": "complete",
+    "outputs": {
+      "summary": "Ledger de consumo estimado generado.",
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "evidence": [
+        "token-ledger.jsonl"
+      ]
+    },
+    "evidence": [
+      "token-ledger.jsonl"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  },
+  {
+    "agent_id": "agent.qa_checklist",
+    "phase": "close",
+    "status": "complete",
+    "outputs": {
+      "summary": "agent.qa_checklist ejecutado de forma determinística.",
+      "evidence": [
+        "context-pack.json",
+        "source-manifest.json"
+      ]
+    },
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "token_ledger": {
+      "estimated_input_tokens": 2564,
+      "estimated_output_tokens": 300,
+      "max_context_tokens": 3500,
+      "total": 2864,
+      "within_budget": true,
+      "economy_mode": true
+    }
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "order": 4,
+  "phase": "context",
+  "agents": [
+    "agent.context_rag",
+    "agent.ocr_ui_analyst",
+    "agent.token_economizer"
+  ]
+}

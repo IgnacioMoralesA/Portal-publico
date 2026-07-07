@@ -1,0 +1,9 @@
+{
+  "order": 12,
+  "phase": "close",
+  "agents": [
+    "agent.doc_tecnica_detalle",
+    "agent.token_billing",
+    "agent.qa_checklist"
+  ]
+}

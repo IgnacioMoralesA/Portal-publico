@@ -1,0 +1,9 @@
+{
+  "order": 11,
+  "phase": "observe",
+  "agents": [
+    "agent.token_billing",
+    "agent.observability_sre",
+    "agent.token_economizer"
+  ]
+}

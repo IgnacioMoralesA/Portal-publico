@@ -1,0 +1,9 @@
+{
+  "order": 5,
+  "phase": "plan",
+  "agents": [
+    "agent.architect_plan",
+    "agent.ui_web_modern",
+    "agent.api_security_docs"
+  ]
+}

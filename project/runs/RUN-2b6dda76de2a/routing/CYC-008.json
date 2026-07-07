@@ -1,0 +1,8 @@
+{
+  "order": 8,
+  "phase": "analyze",
+  "agents": [
+    "agent.qa_checklist",
+    "agent.security_policy"
+  ]
+}

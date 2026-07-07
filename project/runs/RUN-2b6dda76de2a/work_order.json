@@ -1,0 +1,22 @@
+{
+  "work_order_id": "WO-0dd34320fd",
+  "objective": "Construir el Portal Ciudadano de ClaveÚnica según requerimientos funcionales y anexos",
+  "economy_mode": true,
+  "sources": [
+    "source-manifest.json",
+    "ESPECIFICACION_REPLICA_FABRICA.md",
+    "especificacion_requerimientos_funcionales.md"
+  ],
+  "constraints": [
+    "No ejecutar tools bloqueadas.",
+    "No insertar documentos completos en cada prompt.",
+    "Mantener trazabilidad por source_id, CU, FUN, RN, CH y EX.",
+    "Validar presupuesto de tokens antes de cada agente."
+  ],
+  "acceptance": [
+    "Run con estado complete o needs_user_input justificado.",
+    "Context-pack dentro de presupuesto.",
+    "Matriz de trazabilidad creada.",
+    "Reporte final y validación creados."
+  ]
+}

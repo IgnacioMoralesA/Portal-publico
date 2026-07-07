@@ -1,0 +1,74 @@
+[
+  {
+    "source_id": "S00",
+    "filename": "ESPECIFICACION_REPLICA_FABRICA.md",
+    "description": "Especificación para replicar la fábrica ARNES SDD",
+    "sha256": "ce0522126ad006da7ec1800157d0cef3c18a42a09589f35fcbf97b01cec9e7d8",
+    "bytes": 23889,
+    "copied_to_project_input": true
+  },
+  {
+    "source_id": "S01",
+    "filename": "Rex._N°997-2023_aprueba_bases-mp.pdf",
+    "description": "Bases administrativas, técnicas y anexos",
+    "sha256": "ffe3eeb0b02ff64633b2d40c8b46a23d2fc19acab7e663a2e2b2be4bc861dfd3",
+    "bytes": 12679631,
+    "copied_to_project_input": false
+  },
+  {
+    "source_id": "S02",
+    "filename": "ANEXO_N°3.docx",
+    "description": "Oferta económica",
+    "sha256": "4d01581e61ba287491439fa43bff015f8d2257d8b87b05eeab34b25c95adbd6c",
+    "bytes": 21338,
+    "copied_to_project_input": false
+  },
+  {
+    "source_id": "S03",
+    "filename": "ANEXO_N°4.docx",
+    "description": "Presentación equipo de trabajo",
+    "sha256": "8e6bdaaaaa2cdee938f2099b7b79fedbf108322ebd510cef39df7e705d1e9e43",
+    "bytes": 23580,
+    "copied_to_project_input": false
+  },
+  {
+    "source_id": "S04",
+    "filename": "ANEXO_N°5.docx",
+    "description": "Experiencia del oferente",
+    "sha256": "6732d1fa6559ae4759511057f3326c91aa3a9b42ad7f5db7186f4354a69992bb",
+    "bytes": 24241,
+    "copied_to_project_input": false
+  },
+  {
+    "source_id": "S05",
+    "filename": "ANEXO_N°6.docx",
+    "description": "Presentación oferta técnica",
+    "sha256": "f2f91b7ac7f46f176d0deea560abc73dc972422d335301f84b7f7472d442294b",
+    "bytes": 23724,
+    "copied_to_project_input": false
+  },
+  {
+    "source_id": "S06",
+    "filename": "ANEXO_N°7.pdf",
+    "description": "Historias de usuario referenciales",
+    "sha256": "75fb2d981e94cebfef0584cfd2ada51f09ae3ed2584d248596bcc14a6385cd64",
+    "bytes": 176530,
+    "copied_to_project_input": false
+  },
+  {
+    "source_id": "S07",
+    "filename": "ANEXO_N°8.pdf",
+    "description": "Flujo de integración ClaveÚnica y Plataforma de Notificaciones",
+    "sha256": "937ceea03c672d9d8519ec2a7792ded17745307de403d7ff57ae31ae220e4f62",
+    "bytes": 256387,
+    "copied_to_project_input": false
+  },
+  {
+    "source_id": "S08",
+    "filename": "especificacion_requerimientos_funcionales.md",
+    "description": "Especificación de requerimientos funcionales generada",
+    "sha256": "8486a1e13c1a86f0f4b55d013aba9fc575966ea4c6003fa07ba02e12eeb5ee6a",
+    "bytes": 140221,
+    "copied_to_project_input": true
+  }
+]

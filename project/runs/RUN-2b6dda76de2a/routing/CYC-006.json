@@ -1,0 +1,9 @@
+{
+  "order": 6,
+  "phase": "plan_validation",
+  "agents": [
+    "agent.security_policy",
+    "agent.qa_checklist",
+    "agent.token_economizer"
+  ]
+}

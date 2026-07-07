@@ -1,0 +1,9 @@
+{
+  "order": 10,
+  "phase": "validate",
+  "agents": [
+    "agent.tests_coverage",
+    "agent.security_policy",
+    "agent.qa_checklist"
+  ]
+}

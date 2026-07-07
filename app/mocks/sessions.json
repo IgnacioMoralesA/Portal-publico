@@ -1,0 +1,32 @@
+[
+  {
+    "id": "SES-DEMO-001",
+    "actual": true,
+    "dispositivo": "Notebook institucional demo",
+    "navegador": "Navegador local",
+    "ubicacion": "Ubicacion generica demo",
+    "ultimoAcceso": "2026-07-05 10:15",
+    "estado": "activa",
+    "riesgo": ""
+  },
+  {
+    "id": "SES-DEMO-002",
+    "actual": false,
+    "dispositivo": "Telefono demo",
+    "navegador": "Navegador movil simulado",
+    "ubicacion": "Zona generica norte",
+    "ultimoAcceso": "2026-07-04 18:40",
+    "estado": "activa",
+    "riesgo": "revision recomendada"
+  },
+  {
+    "id": "SES-DEMO-003",
+    "actual": false,
+    "dispositivo": "Equipo compartido demo",
+    "navegador": "Navegador de escritorio simulado",
+    "ubicacion": "Zona generica centro",
+    "ultimoAcceso": "2026-07-03 09:25",
+    "estado": "activa",
+    "riesgo": "riesgo medio demo"
+  }
+]

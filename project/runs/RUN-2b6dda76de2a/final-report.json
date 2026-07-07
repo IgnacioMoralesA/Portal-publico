@@ -1,0 +1,8 @@
+{
+  "objective": "Construir el Portal Ciudadano de ClaveÚnica según requerimientos funcionales y anexos",
+  "factory": "Fabrica_ClaveUnica_ARNES_SDD",
+  "version": "1.1.0-token-economy",
+  "status": "complete",
+  "estimated_total_tokens": 77328,
+  "summary_markdown": "# Reporte final de fábrica\n\n## Objetivo\n\nConstruir el Portal Ciudadano de ClaveÚnica según requerimientos funcionales y anexos\n\n## Estado\n\n- Fábrica: Fabrica_ClaveUnica_ARNES_SDD 1.1.0-token-economy\n- Estado: complete\n- Agentes ejecutados: 27\n- Contexto estimado: 1764 tokens\n- Consumo total estimado de agentes: 77328 tokens\n- Economía de tokens: activa\n\n## Decisiones\n\n1. El documento funcional consolidado es la fuente prioritaria para CU/FUN/RN/CH/EX.\n2. Los anexos visuales y administrativos se mantienen como evidencia de apoyo.\n3. El trabajo de agentes se controla con gates de schema, evidencia, seguridad, presupuesto y formato final.\n4. No se deben reenviar documentos completos a cada agente.\n\n## Próximos pasos\n\n1. Revisar `traceability-matrix.md`.\n2. Convertir cobertura en backlog técnico.\n3. Implementar prototipo por módulos.\n4. Ejecutar pruebas de accesibilidad y prototipo.\n"
+}

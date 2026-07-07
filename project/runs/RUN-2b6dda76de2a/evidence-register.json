@@ -1,0 +1,244 @@
+[
+  {
+    "phase": "specify",
+    "agent_id": "agent.spec_detallada",
+    "evidence": [
+      "S01",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "clarify",
+    "agent_id": "agent.spec_detallada",
+    "evidence": [
+      "S01",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "checklist",
+    "agent_id": "agent.qa_checklist",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "context",
+    "agent_id": "agent.context_rag",
+    "evidence": [
+      "context-pack.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "context",
+    "agent_id": "agent.ocr_ui_analyst",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "context",
+    "agent_id": "agent.token_economizer",
+    "evidence": [
+      "TOKEN_ECONOMY_POLICY",
+      "context-pack.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "plan",
+    "agent_id": "agent.architect_plan",
+    "evidence": [
+      "S08:CU_001-CU_021"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "plan",
+    "agent_id": "agent.ui_web_modern",
+    "evidence": [
+      "S06:HU01-HU16",
+      "S07"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "plan",
+    "agent_id": "agent.api_security_docs",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "plan_validation",
+    "agent_id": "agent.security_policy",
+    "evidence": [
+      "S06:HU02-HU04",
+      "S08"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "plan_validation",
+    "agent_id": "agent.qa_checklist",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "plan_validation",
+    "agent_id": "agent.token_economizer",
+    "evidence": [
+      "TOKEN_ECONOMY_POLICY",
+      "context-pack.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "tasks",
+    "agent_id": "agent.architect_plan",
+    "evidence": [
+      "S08:CU_001-CU_021"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "tasks",
+    "agent_id": "agent.tests_coverage",
+    "evidence": [
+      "S05",
+      "S08"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "tasks",
+    "agent_id": "agent.doc_tecnica_detalle",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "analyze",
+    "agent_id": "agent.qa_checklist",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "analyze",
+    "agent_id": "agent.security_policy",
+    "evidence": [
+      "S06:HU02-HU04",
+      "S08"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "implement",
+    "agent_id": "agent.implementacion_doc_code",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "validate",
+    "agent_id": "agent.tests_coverage",
+    "evidence": [
+      "S05",
+      "S08"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "validate",
+    "agent_id": "agent.security_policy",
+    "evidence": [
+      "S06:HU02-HU04",
+      "S08"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "validate",
+    "agent_id": "agent.qa_checklist",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "observe",
+    "agent_id": "agent.token_billing",
+    "evidence": [
+      "token-ledger.jsonl"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "observe",
+    "agent_id": "agent.observability_sre",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "observe",
+    "agent_id": "agent.token_economizer",
+    "evidence": [
+      "TOKEN_ECONOMY_POLICY",
+      "context-pack.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "close",
+    "agent_id": "agent.doc_tecnica_detalle",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "close",
+    "agent_id": "agent.token_billing",
+    "evidence": [
+      "token-ledger.jsonl"
+    ],
+    "status": "complete"
+  },
+  {
+    "phase": "close",
+    "agent_id": "agent.qa_checklist",
+    "evidence": [
+      "context-pack.json",
+      "source-manifest.json"
+    ],
+    "status": "complete"
+  }
+]

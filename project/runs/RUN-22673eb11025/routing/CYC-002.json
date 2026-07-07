@@ -1,0 +1,7 @@
+{
+  "order": 2,
+  "phase": "clarify",
+  "agents": [
+    "agent.spec_detallada"
+  ]
+}

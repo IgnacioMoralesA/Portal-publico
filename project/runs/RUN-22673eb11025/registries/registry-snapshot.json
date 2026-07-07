@@ -1,0 +1,432 @@
+{
+  "tools": {
+    "fs.read": {
+      "tool_id": "fs.read",
+      "description": "Lectura de archivos del proyecto",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "fs.write_project": {
+      "tool_id": "fs.write_project",
+      "description": "Escritura acotada dentro de project/",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "json.validate": {
+      "tool_id": "json.validate",
+      "description": "Validación de contratos JSON",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "markdown.write": {
+      "tool_id": "markdown.write",
+      "description": "Generación de documentación markdown",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "token.estimate": {
+      "tool_id": "token.estimate",
+      "description": "Estimación heurística de tokens",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "context.pack": {
+      "tool_id": "context.pack",
+      "description": "Construcción de paquetes de contexto",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "evidence.write": {
+      "tool_id": "evidence.write",
+      "description": "Registro de evidencia trazable",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "ledger.write": {
+      "tool_id": "ledger.write",
+      "description": "Registro de consumo",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "test.run": {
+      "tool_id": "test.run",
+      "description": "Ejecución de pruebas locales",
+      "allowed": true,
+      "requires_approval": false
+    },
+    "shell.free": {
+      "tool_id": "shell.free",
+      "description": "Ejecución libre de shell",
+      "allowed": false,
+      "requires_approval": true
+    },
+    "secrets.read": {
+      "tool_id": "secrets.read",
+      "description": "Lectura de secretos",
+      "allowed": false,
+      "requires_approval": true
+    },
+    "deploy.direct": {
+      "tool_id": "deploy.direct",
+      "description": "Despliegue directo",
+      "allowed": false,
+      "requires_approval": true
+    },
+    "memory.write_ungated": {
+      "tool_id": "memory.write_ungated",
+      "description": "Escritura de memoria sin gate",
+      "allowed": false,
+      "requires_approval": true
+    },
+    "external.write_unapproved": {
+      "tool_id": "external.write_unapproved",
+      "description": "Escritura externa no aprobada",
+      "allowed": false,
+      "requires_approval": true
+    },
+    "db.write": {
+      "tool_id": "db.write",
+      "description": "Escritura en base de datos",
+      "allowed": false,
+      "requires_approval": true
+    }
+  },
+  "skills": {
+    "requirements_extraction": {
+      "skill_id": "requirements_extraction",
+      "description": "Extrae casos de uso, reglas, restricciones y criterios de aceptación.",
+      "token_cost": "medium"
+    },
+    "context_retrieval": {
+      "skill_id": "context_retrieval",
+      "description": "Busca contexto mínimo suficiente por source_id y chunk_id.",
+      "token_cost": "low"
+    },
+    "frontend_architecture": {
+      "skill_id": "frontend_architecture",
+      "description": "Diseña arquitectura frontend y experiencia pública/privada.",
+      "token_cost": "medium"
+    },
+    "security_review": {
+      "skill_id": "security_review",
+      "description": "Revisa controles de seguridad, 2FA, sesiones y datos sensibles.",
+      "token_cost": "medium"
+    },
+    "qa_checklist": {
+      "skill_id": "qa_checklist",
+      "description": "Construye checklist de completitud y aceptación.",
+      "token_cost": "medium"
+    },
+    "test_design": {
+      "skill_id": "test_design",
+      "description": "Define pruebas funcionales, accesibilidad y prototipo.",
+      "token_cost": "medium"
+    },
+    "technical_docs": {
+      "skill_id": "technical_docs",
+      "description": "Genera documentación técnica trazable.",
+      "token_cost": "medium"
+    },
+    "observability": {
+      "skill_id": "observability",
+      "description": "Genera logs, métricas y reporte de ejecución.",
+      "token_cost": "medium"
+    },
+    "token_accounting": {
+      "skill_id": "token_accounting",
+      "description": "Calcula consumo estimado por fase y agente.",
+      "token_cost": "low"
+    },
+    "token_context_compaction": {
+      "skill_id": "token_context_compaction",
+      "description": "Reduce contexto repetido, limita salidas y prioriza IDs de evidencia.",
+      "token_cost": "low"
+    }
+  },
+  "agents": {
+    "agent.spec_detallada": {
+      "agent_id": "agent.spec_detallada",
+      "role": "Especificador funcional",
+      "skills": [
+        "requirements_extraction"
+      ],
+      "tools": [
+        "fs.read",
+        "json.validate",
+        "evidence.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.qa_checklist": {
+      "agent_id": "agent.qa_checklist",
+      "role": "QA de completitud",
+      "skills": [
+        "qa_checklist"
+      ],
+      "tools": [
+        "json.validate",
+        "markdown.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.context_rag": {
+      "agent_id": "agent.context_rag",
+      "role": "Curador de contexto",
+      "skills": [
+        "context_retrieval",
+        "token_context_compaction"
+      ],
+      "tools": [
+        "fs.read",
+        "context.pack",
+        "token.estimate"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.ocr_ui_analyst": {
+      "agent_id": "agent.ocr_ui_analyst",
+      "role": "Analista de anexos visuales",
+      "skills": [
+        "requirements_extraction"
+      ],
+      "tools": [
+        "fs.read",
+        "evidence.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.architect_plan": {
+      "agent_id": "agent.architect_plan",
+      "role": "Arquitecto de solución",
+      "skills": [
+        "frontend_architecture"
+      ],
+      "tools": [
+        "markdown.write",
+        "evidence.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.ui_web_modern": {
+      "agent_id": "agent.ui_web_modern",
+      "role": "Diseñador UX/UI",
+      "skills": [
+        "frontend_architecture"
+      ],
+      "tools": [
+        "markdown.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.api_security_docs": {
+      "agent_id": "agent.api_security_docs",
+      "role": "Documentador de contratos e integración",
+      "skills": [
+        "technical_docs",
+        "security_review"
+      ],
+      "tools": [
+        "markdown.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.security_policy": {
+      "agent_id": "agent.security_policy",
+      "role": "Revisor de seguridad",
+      "skills": [
+        "security_review"
+      ],
+      "tools": [
+        "json.validate",
+        "markdown.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.tests_coverage": {
+      "agent_id": "agent.tests_coverage",
+      "role": "Diseñador de cobertura de pruebas",
+      "skills": [
+        "test_design"
+      ],
+      "tools": [
+        "test.run",
+        "markdown.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.implementacion_doc_code": {
+      "agent_id": "agent.implementacion_doc_code",
+      "role": "Implementador documental/código",
+      "skills": [
+        "technical_docs"
+      ],
+      "tools": [
+        "fs.write_project",
+        "markdown.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.token_billing": {
+      "agent_id": "agent.token_billing",
+      "role": "Auditor de consumo",
+      "skills": [
+        "token_accounting"
+      ],
+      "tools": [
+        "token.estimate",
+        "ledger.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.observability_sre": {
+      "agent_id": "agent.observability_sre",
+      "role": "Observabilidad SRE",
+      "skills": [
+        "observability"
+      ],
+      "tools": [
+        "ledger.write",
+        "markdown.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.doc_tecnica_detalle": {
+      "agent_id": "agent.doc_tecnica_detalle",
+      "role": "Documentador técnico final",
+      "skills": [
+        "technical_docs"
+      ],
+      "tools": [
+        "markdown.write",
+        "evidence.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    },
+    "agent.token_economizer": {
+      "agent_id": "agent.token_economizer",
+      "role": "Optimizador de tokens",
+      "skills": [
+        "token_context_compaction",
+        "token_accounting"
+      ],
+      "tools": [
+        "token.estimate",
+        "context.pack",
+        "ledger.write"
+      ],
+      "output_contract": "strict_json",
+      "model_policy": {
+        "temperature": 0,
+        "top_p": 1,
+        "seed": 12345,
+        "parallel_tool_calls": false,
+        "response_format": "strict_json_schema",
+        "economy_first": true
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "AUT-DEMO-001",
+    "institucion": "Instituto Demo de Estudios Sociales",
+    "finalidad": "Validar postulacion ficticia a un beneficio local de prueba.",
+    "tipoDato": "Indicador sensible generico",
+    "fechaSolicitud": "2026-07-02 09:15",
+    "estado": "pendiente",
+    "fechaDecision": "",
+    "historial": [
+      "2026-07-02 09:15 solicitud demo recibida"
+    ]
+  },
+  {
+    "id": "AUT-DEMO-002",
+    "institucion": "Agencia Ficticia de Orientacion Ciudadana",
+    "finalidad": "Preparar recomendacion simulada para un tramite ciudadano demo.",
+    "tipoDato": "Categoria sensible generica",
+    "fechaSolicitud": "2026-07-03 11:40",
+    "estado": "pendiente",
+    "fechaDecision": "",
+    "historial": [
+      "2026-07-03 11:40 solicitud demo recibida"
+    ]
+  },
+  {
+    "id": "AUT-DEMO-003",
+    "institucion": "Centro Demo de Apoyo Local",
+    "finalidad": "Revisar elegibilidad ficticia de acompanamiento no productivo.",
+    "tipoDato": "Antecedente sensible representado de forma generica",
+    "fechaSolicitud": "2026-06-28 15:05",
+    "estado": "aprobada",
+    "fechaDecision": "2026-06-29 10:00",
+    "historial": [
+      "2026-06-28 15:05 solicitud demo recibida",
+      "2026-06-29 10:00 aprobacion demo registrada"
+    ]
+  },
+  {
+    "id": "AUT-DEMO-004",
+    "institucion": "Unidad Simulada de Servicios Comunitarios",
+    "finalidad": "Contrastar requisito ficticio para una atencion local de prueba.",
+    "tipoDato": "Dato sensible generico no revelado",
+    "fechaSolicitud": "2026-06-25 13:30",
+    "estado": "rechazada",
+    "fechaDecision": "2026-06-25 18:20",
+    "historial": [
+      "2026-06-25 13:30 solicitud demo recibida",
+      "2026-06-25 18:20 rechazo demo registrado"
+    ]
+  },
+  {
+    "id": "AUT-DEMO-005",
+    "institucion": "Programa Ficticio de Asistencia Digital",
+    "finalidad": "Mantener referencia simulada para una revision historica local.",
+    "tipoDato": "Grupo sensible generico",
+    "fechaSolicitud": "2026-06-20 08:50",
+    "estado": "revocada",
+    "fechaDecision": "2026-06-30 16:10",
+    "historial": [
+      "2026-06-20 08:50 solicitud demo recibida",
+      "2026-06-21 09:25 aprobacion demo registrada",
+      "2026-06-30 16:10 revocacion demo registrada"
+    ]
+  }
+]

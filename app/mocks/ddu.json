@@ -1,0 +1,12 @@
+{
+  "estado": "pendiente",
+  "domicilio": "Domicilio Digital Unico pendiente de configuracion demo",
+  "alertaPendiente": true,
+  "fechaConfiguracion": "",
+  "canal": "",
+  "casillaDemo": "",
+  "pasarela": {
+    "nombre": "Pasarela simulada de configuracion DDU",
+    "advertencia": "No es CasillaUnica real y no configura DDU real."
+  }
+}
