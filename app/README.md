@@ -99,12 +99,13 @@ Desde la raiz:
 
 ```powershell
 python -m pytest -q tests -p no:cacheprovider --basetemp=.pytest-basetemp
+python -m pytest --cov=app.backend --cov-report=term-missing --cov-report=html --cov-fail-under=100 tests -p no:cacheprovider --basetemp=.pytest-basetemp
 node --check app/frontend/app.js
 ```
 
-Resultado vigente registrado: `55 passed`; `node --check` sin errores.
+Resultado vigente registrado: `89 passed`; cobertura backend Python `100.00%` sobre `app/backend`; `node --check` sin errores.
 
-La suite backend vive en `tests/backend/` y valida salud, estado, login, OTP, inventario minimo de API, recursos principales, esquema minimo de 40 tablas, 115 CHECK constraints, seed ficticio y ausencia de URLs/secretos reales.
+La suite backend vive en `tests/backend/` y valida salud, estado, login, OTP, inventario minimo de API, recursos principales, esquema minimo de 40 tablas, 115 CHECK constraints, seed ficticio, rutas de error/mutacion y ausencia de URLs/secretos reales. El frontend JavaScript mantiene validacion estatica y `node --check`, sin cobertura JS instrumentada.
 
 ## Alcance y seguridad
 
@@ -120,5 +121,6 @@ La suite backend vive en `tests/backend/` y valida salud, estado, login, OTP, in
 - Criterio de 30 pantallas: cumplido con `docs/SCREEN_INVENTORY.md`.
 - Criterio de 60 reglas de negocio: cumplido con `docs/BUSINESS_RULES_CATALOG.md`.
 - Checklist de completitud: cumplido con `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`.
-- Siguen pendientes cobertura 100% y deploy Linux EC2 AWS.
+- Cobertura backend Python 100% cumplida sobre `app/backend`.
+- Sigue pendiente deploy Linux EC2 AWS.
 - Criterios de 40 tablas y 100 CHECK/validaciones SQL: cumplidos en backend local/mock.

@@ -2,7 +2,7 @@
 
 Fuente base: `project/runs/RUN-22673eb11025/traceability-matrix.md`.
 
-Estado final del ciclo: prototipo funcional local/sandbox cerrado documentalmente. Los modulos estan implementados en frontend estatico con mocks y pruebas estaticas; no hay backend real ni integraciones reales.
+Estado final del ciclo: prototipo funcional local/sandbox cerrado documentalmente. Los modulos estan implementados en frontend estatico con mocks y pruebas estaticas; existe backend FastAPI local/mock con SQLite, seed ficticio y cobertura instrumentada `100.00%` sobre `app/backend`. No hay integraciones reales ni produccion.
 
 ## 1. Portal publico
 
@@ -81,8 +81,8 @@ Estado final del ciclo: prototipo funcional local/sandbox cerrado documentalment
 - Criterios de aceptacion: pruebas estaticas pasan; evidencia registrada; modulo trazado a S05.
 - Prioridad: alta.
 - Estado final: implementado parcialmente.
-- Evidencia: `docs/QA_ACCESSIBILITY_REPORT.md`, `docs/FINAL_TEST_SUMMARY.md`, `tests/frontend/`.
-- Nota: quedan pendientes E2E automatizado, auditoria WCAG formal, lector de pantalla y matriz real de dispositivos/navegadores.
+- Evidencia: `docs/QA_ACCESSIBILITY_REPORT.md`, `docs/FINAL_TEST_SUMMARY.md`, `docs/TEST_COVERAGE_REPORT.md`, `tests/frontend/`, `tests/backend/`.
+- Nota: quedan pendientes E2E automatizado, auditoria WCAG formal, lector de pantalla, matriz real de dispositivos/navegadores y cobertura JS instrumentada si se exige.
 
 ## 9. Garantia y evidencia
 
@@ -102,7 +102,7 @@ Estado final del ciclo: prototipo funcional local/sandbox cerrado documentalment
 - Prioridad: alta.
 - Estado: base API y esquema minimo cumplidos en ciclos `database_40_tables_and_check_constraints_expansion` y `api_40_endpoints_expansion`.
 - Evidencia: `app/backend/`, `tests/backend/test_api_endpoint_inventory.py`, `tests/backend/test_database_schema.py`, `tests/backend/test_database_constraints.py`, `tests/backend/test_seed_data.py`, `docs/SCOPE_COMPLIANCE_MATRIX.md`.
-- Nota: no conecta ClaveUnica real, CasillaUnica real ni Plataforma de Notificaciones real. Persisten brechas de cobertura 100% y deploy Linux EC2 AWS.
+- Nota: no conecta ClaveUnica real, CasillaUnica real ni Plataforma de Notificaciones real. Cobertura backend Python 100% cumplida; persiste deploy Linux EC2 AWS.
 
 ## 11. Catalogos formales de alcance
 
@@ -112,4 +112,4 @@ Estado final del ciclo: prototipo funcional local/sandbox cerrado documentalment
 - Prioridad: alta.
 - Estado: implementado documentalmente en ciclo `use_cases_screens_business_rules_and_completion_catalog`.
 - Evidencia: `docs/SYSTEM_SPECIFICATION.md`, `docs/USE_CASE_CATALOG.md`, `docs/FUNCTIONAL_FLOW_CATALOG.md`, `docs/SCREEN_INVENTORY.md`, `docs/BUSINESS_RULES_CATALOG.md`, `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`, `tests/test_scope_catalogs_static.py`.
-- Nota: cobertura automatizada 100% y deploy Linux EC2 AWS siguen pendientes. No se afirma produccion ni integracion real.
+- Nota: cobertura automatizada 100% cumplida para backend Python local/mock. Deploy Linux EC2 AWS sigue pendiente. No se afirma produccion ni integracion real.

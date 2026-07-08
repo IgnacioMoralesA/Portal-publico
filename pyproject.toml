@@ -1,3 +1,16 @@
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["app/backend"]
+omit = [
+    "app/backend/__init__.py",
+    "app/backend/routers/__init__.py",
+    "app/backend/schemas/__init__.py",
+    "app/backend/services/__init__.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100

@@ -18,7 +18,7 @@ El ciclo `api_40_endpoints_expansion` deja una API FastAPI local/mock con SQLite
 - `docs/`: especificacion, evidencia, QA, guion demo y cierre final.
 - `factory/`: arnes SDD local, sin cambios en este cierre documental.
 - `project/`: entradas y runs de fabrica, incluyendo `RUN-22673eb11025`.
-- `tests/`: pruebas estaticas de fabrica y frontend.
+- `tests/`: pruebas de fabrica, frontend estatico y backend local/mock.
 
 ## Modulos implementados
 
@@ -76,12 +76,13 @@ Desde la raiz del repositorio:
 
 ```powershell
 python -m pytest -q tests -p no:cacheprovider --basetemp=.pytest-basetemp
+python -m pytest --cov=app.backend --cov-report=term-missing --cov-report=html --cov-fail-under=100 tests -p no:cacheprovider --basetemp=.pytest-basetemp
 node --check app/frontend/app.js
 ```
 
-Resultado vigente registrado tras expansion API: `71 passed`; `node --check` sin errores.
+Resultado vigente registrado en el ciclo de cobertura: `89 passed`; cobertura backend Python `100.00%` sobre `app/backend`; `node --check` sin errores.
 
-El ciclo backend agrega pruebas en `tests/backend/`; el resultado vigente debe verificarse ejecutando la suite completa.
+El frontend se valida con pruebas estaticas y `node --check`; no se afirma cobertura JS instrumentada.
 
 ## Cumplimiento de criterios minimos
 
@@ -94,7 +95,7 @@ El ciclo backend agrega pruebas en `tests/backend/`; el resultado vigente debe v
 - 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
 - 40 tablas: cumplido.
 - 100 CHECK: cumplido con 115 constraints.
-- Cobertura automatizada 100%: pendiente.
+- Cobertura automatizada 100%: cumplida para backend Python local/mock (`app/backend`).
 - Deploy online en Linux EC2 AWS: pendiente.
 
 ## Brechas del criterio minimo
@@ -103,7 +104,7 @@ El ciclo backend agrega pruebas en `tests/backend/`; el resultado vigente debe v
 - Criterio de 40 tablas: cumplido.
 - Criterio de 100 CHECK: cumplido con 115 constraints.
 - Criterios documentales de casos de uso, flujos, pantallas, reglas y checklist: cumplidos.
-- Falta cobertura automatizada 100%.
+- Cobertura backend Python 100% cumplida; falta coverage JS instrumentada solo si se exige herramienta real para frontend.
 - Falta deploy online en Linux EC2 AWS.
 
 ## Documentacion final
@@ -125,6 +126,7 @@ Documentos principales:
 - `docs/SCREEN_INVENTORY.md`
 - `docs/BUSINESS_RULES_CATALOG.md`
 - `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`
+- `docs/TEST_COVERAGE_REPORT.md`
 
 ## Riesgos residuales
 

@@ -58,6 +58,20 @@ Estado del esquema local/mock:
 - Seed ficticio idempotente para usuario demo, sesiones, DDU, notificaciones, autorizaciones, catalogos, evidencia y control de despliegue pendiente.
 - Pruebas de esquema en `tests/backend/test_database_schema.py`, `tests/backend/test_database_constraints.py` y `tests/backend/test_seed_data.py`.
 
+## Cobertura
+
+Cobertura instrumentada backend Python: `100.00%` sobre `app/backend`.
+
+Comando de evidencia:
+
+```powershell
+python -m pytest --cov=app.backend --cov-report=term-missing --cov-report=html --cov-fail-under=100 tests -p no:cacheprovider --basetemp=.pytest-basetemp
+```
+
+Evidencia documental: `docs/TEST_COVERAGE_REPORT.md`.
+
+Limitacion: esta cobertura aplica al backend Python local/mock. El frontend JavaScript se valida con pruebas estaticas y `node --check`, sin cobertura JS instrumentada.
+
 ## Brechas pendientes
 
 - Criterio de 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
@@ -68,5 +82,5 @@ Estado del esquema local/mock:
 - Criterio de 30 pantallas: cumplido con `docs/SCREEN_INVENTORY.md`.
 - Criterio de 60 reglas de negocio: cumplido con `docs/BUSINESS_RULES_CATALOG.md`.
 - Checklist de completitud: cumplido con `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`.
-- Falta cobertura automatizada 100%.
+- Cobertura backend Python 100%: cumplida.
 - Falta despliegue online en Linux sobre EC2 AWS.
