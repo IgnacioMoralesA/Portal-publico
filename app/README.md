@@ -102,9 +102,9 @@ python -m pytest -q tests -p no:cacheprovider --basetemp=.pytest-basetemp
 node --check app/frontend/app.js
 ```
 
-Resultado final registrado: `35 passed`; `node --check` sin errores.
+Resultado vigente registrado: `55 passed`; `node --check` sin errores.
 
-La suite backend inicial vive en `tests/backend/` y valida salud, estado, login, OTP, recursos principales y ausencia de URLs/secretos reales.
+La suite backend vive en `tests/backend/` y valida salud, estado, login, OTP, recursos principales, esquema minimo de 40 tablas, 115 CHECK constraints, seed ficticio y ausencia de URLs/secretos reales.
 
 ## Alcance y seguridad
 
@@ -114,4 +114,5 @@ La suite backend inicial vive en `tests/backend/` y valida salud, estado, login,
 - `sessionStorage` es solo estado demo/local del navegador.
 - No hay validez legal, operacional ni productiva.
 - Backend/API es local/mock con SQLite local.
-- Siguen pendientes 40 endpoints totales, 40 tablas totales, 100 CHECK/validaciones totales, cobertura 100% y deploy Linux EC2 AWS.
+- Siguen pendientes 40 endpoints totales, cobertura 100% y deploy Linux EC2 AWS.
+- Criterios de 40 tablas y 100 CHECK/validaciones SQL: cumplidos en backend local/mock.

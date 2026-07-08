@@ -49,12 +49,17 @@ python -m app.backend.main
 
 SQLite local en `app/backend/local.db`, creada automaticamente al importar `app.backend.main`.
 
-Tablas iniciales: `users`, `auth_factors`, `login_attempts`, `user_sessions`, `ddu_profiles`, `notifications`, `authorization_requests`, `audit_events`.
+Estado del esquema local/mock:
+
+- 40 tablas SQLAlchemy/SQLite.
+- 115 restricciones `CHECK`.
+- Seed ficticio idempotente para usuario demo, sesiones, DDU, notificaciones, autorizaciones, catalogos, evidencia y control de despliegue pendiente.
+- Pruebas de esquema en `tests/backend/test_database_schema.py`, `tests/backend/test_database_constraints.py` y `tests/backend/test_seed_data.py`.
 
 ## Brechas pendientes
 
 - Faltan 31 endpoints para llegar a 40.
-- Faltan 32 tablas para llegar a 40.
-- Faltan validaciones/CHECK hasta completar 100.
+- Criterio de 40 tablas: cumplido.
+- Criterio de 100 CHECK: cumplido.
 - Falta cobertura automatizada 100%.
 - Falta despliegue online en Linux sobre EC2 AWS.

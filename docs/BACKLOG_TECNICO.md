@@ -97,9 +97,9 @@ Estado final del ciclo: prototipo funcional local/sandbox cerrado documentalment
 ## 10. Backend local/API mock y base de datos
 
 - Objetivo: crear base extensible para API local y persistencia SQLite sin servicios reales.
-- Funcionalidades: health check, estado API, login demo, OTP demo, usuario actual, DDU, sesiones, notificaciones y autorizaciones.
-- Criterios de aceptacion: API FastAPI importa correctamente, crea SQLite local con seed ficticio, expone 9 endpoints iniciales y cuenta con pruebas backend minimas.
+- Funcionalidades: health check, estado API, login demo, OTP demo, usuario actual, DDU, sesiones, notificaciones, autorizaciones y esquema local extendido.
+- Criterios de aceptacion: API FastAPI importa correctamente, crea SQLite local con seed ficticio, expone 9 endpoints iniciales, mantiene 40 tablas y supera 100 CHECK constraints.
 - Prioridad: alta.
-- Estado: base inicial implementada en ciclo `backend_scope_matrix_and_api_foundation`.
-- Evidencia: `app/backend/`, `tests/backend/`, `docs/SCOPE_COMPLIANCE_MATRIX.md`.
-- Nota: no conecta ClaveUnica real, CasillaUnica real ni Plataforma de Notificaciones real. Persisten brechas de 31 endpoints, 32 tablas, 81 validaciones/CHECK, cobertura 100% y deploy Linux EC2 AWS.
+- Estado: base inicial implementada y esquema minimo cumplido en ciclo `database_40_tables_and_check_constraints_expansion`.
+- Evidencia: `app/backend/`, `tests/backend/test_database_schema.py`, `tests/backend/test_database_constraints.py`, `tests/backend/test_seed_data.py`, `docs/SCOPE_COMPLIANCE_MATRIX.md`.
+- Nota: no conecta ClaveUnica real, CasillaUnica real ni Plataforma de Notificaciones real. Persisten brechas de 31 endpoints, cobertura 100% y deploy Linux EC2 AWS.

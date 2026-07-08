@@ -8,7 +8,7 @@ El run base validado es `project/runs/RUN-22673eb11025`, con estado `complete`, 
 
 El prototipo publico/privado esta implementado como frontend estatico local. Permite recorrer portal publico, login simulado, OTP/2FA simulado, dashboard, datos personales, sesiones, DDU, notificaciones, autorizaciones y cierre de sesion.
 
-El ciclo `backend_scope_matrix_and_api_foundation` agrega una API FastAPI local/mock con SQLite local, seed ficticio, routers iniciales y pruebas backend minimas. Este proyecto no esta listo para produccion. No conecta ClaveUnica real, CasillaUnica real, Plataforma de Notificaciones real ni servicios externos. Usa datos ficticios, mocks locales, SQLite local y `sessionStorage` solo para estado demo/local.
+El ciclo `database_40_tables_and_check_constraints_expansion` deja una API FastAPI local/mock con SQLite local, seed ficticio, routers iniciales, 40 tablas y 115 CHECK constraints. Este proyecto no esta listo para produccion. No conecta ClaveUnica real, CasillaUnica real, Plataforma de Notificaciones real ni servicios externos. Usa datos ficticios, mocks locales, SQLite local y `sessionStorage` solo para estado demo/local.
 
 ## Estructura resumida
 
@@ -79,15 +79,15 @@ python -m pytest -q tests -p no:cacheprovider --basetemp=.pytest-basetemp
 node --check app/frontend/app.js
 ```
 
-Resultado final registrado: `35 passed`; `node --check` sin errores.
+Resultado vigente registrado: `55 passed`; `node --check` sin errores.
 
 El ciclo backend agrega pruebas en `tests/backend/`; el resultado vigente debe verificarse ejecutando la suite completa.
 
 ## Brechas del criterio minimo
 
 - Faltan 31 endpoints para completar 40.
-- Faltan 32 tablas para completar 40.
-- Faltan 81 validaciones/CHECK para completar 100.
+- Criterio de 40 tablas: cumplido.
+- Criterio de 100 CHECK: cumplido con 115 constraints.
 - Falta checklist de producto final actualizado a todos los criterios.
 - Falta cobertura automatizada 100%.
 - Falta deploy online en Linux EC2 AWS.
