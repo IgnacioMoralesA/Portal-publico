@@ -8,6 +8,8 @@
 4. Mantener trazabilidad entre caso de uso, funcionalidad, evidencia y artefacto generado.
 5. Antes de ejecutar un agente, validar presupuesto de tokens.
 6. Cuando un agente necesite más contexto, pedir IDs de evidencia específicos, no documentos completos.
+7. Priorizar siempre economizar tokens: leer solo el contexto necesario, resumir resultados y evitar reinyecciones extensas.
+8. Si se levanta el proyecto, servidor o proceso local para verificar algo, bajarlo al terminar para no dejar consumo activo.
 
 ## Decisiones de diseño
 

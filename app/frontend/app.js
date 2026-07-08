@@ -389,13 +389,13 @@ function loginView() {
       <form class="auth-card" id="login-form" autocomplete="off" novalidate>
         <div class="form-field">
           <label for="login-user">Usuario demo</label>
-          <input id="login-user" name="usuario" type="text" inputmode="email" required>
+          <input id="login-user" name="usuario" type="text" inputmode="email" autocomplete="username" required>
         </div>
         <div class="form-field">
           <label for="login-password">Clave demo</label>
-          <input id="login-password" name="clave" type="password" required>
+          <input id="login-password" name="clave" type="password" autocomplete="current-password" required>
         </div>
-        ${state.loginError ? `<p class="form-error" role="alert">${state.loginError}</p>` : ""}
+        ${state.loginError ? `<p class="form-error" role="alert" aria-live="assertive">${state.loginError}</p>` : ""}
         <button class="primary-button" type="submit">Continuar</button>
         <button class="link-button auth-link" type="button" data-action="recover">Recuperar ClaveÚnica</button>
       </form>
@@ -414,9 +414,9 @@ function otpView() {
       <form class="auth-card" id="otp-form" autocomplete="off" novalidate>
         <div class="form-field">
           <label for="otp-code">Código OTP demo</label>
-          <input id="otp-code" name="otp" type="text" inputmode="numeric" maxlength="6" required>
+          <input id="otp-code" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required>
         </div>
-        ${state.otpError ? `<p class="form-error" role="alert">${state.otpError}</p>` : ""}
+        ${state.otpError ? `<p class="form-error" role="alert" aria-live="assertive">${state.otpError}</p>` : ""}
         <button class="primary-button" type="submit">Validar código</button>
         <button class="link-button auth-link" type="button" data-action="login">Volver al login</button>
       </form>
@@ -426,7 +426,7 @@ function otpView() {
 
 function privateShell(route) {
   const nav = privateRoutes.map(([key, label]) => {
-    const active = route === key ? " class=\"active\"" : "";
+    const active = route === key ? " class=\"active\" aria-current=\"page\"" : "";
     return `<a${active} href="#/${key}">${label}</a>`;
   }).join("");
 
@@ -527,7 +527,7 @@ function privateContent(route) {
 function authorizationsView() {
   const selected = (state.data.authorizations || []).find((item) => item.id === state.selectedAuthorizationId);
   const message = state.authorizationMessage
-    ? `<p class="form-${state.authorizationMessage.type}" role="alert">${state.authorizationMessage.text}</p>`
+    ? `<p class="form-${state.authorizationMessage.type}" role="alert" aria-live="polite">${state.authorizationMessage.text}</p>`
     : "";
 
   if (selected) {
@@ -618,7 +618,7 @@ function authorizationDetailView(item, message) {
         </div>
         <div class="form-field security-factor-field">
           <label for="authorization-security-code">Factor demo obligatorio</label>
-          <input id="authorization-security-code" name="factor" type="text" inputmode="numeric" maxlength="6" placeholder="Codigo demo" required>
+          <input id="authorization-security-code" name="factor" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="Codigo demo" required>
         </div>
         <div class="form-actions">
           ${isPending ? `<button class="primary-button authorization-action-button" type="submit" data-authorization-decision="aprobar">Aprobar solicitud</button>` : ""}
@@ -686,7 +686,7 @@ function notificationsView() {
   const isConfigured = ddu.estado === "configurado";
   const selected = (state.data.notifications || []).find((item) => item.id === state.selectedNotificationId);
   const message = state.notificationMessage
-    ? `<p class="form-${state.notificationMessage.type}" role="alert">${state.notificationMessage.text}</p>`
+    ? `<p class="form-${state.notificationMessage.type}" role="alert" aria-live="polite">${state.notificationMessage.text}</p>`
     : "";
 
   if (!isConfigured) {
@@ -816,7 +816,7 @@ function dduView() {
   const ddu = getDduState();
   const isConfigured = ddu.estado === "configurado";
   const message = state.dduMessage
-    ? `<p class="form-${state.dduMessage.type}" role="alert">${state.dduMessage.text}</p>`
+    ? `<p class="form-${state.dduMessage.type}" role="alert" aria-live="polite">${state.dduMessage.text}</p>`
     : "";
   const pendingAlert = !isConfigured
     ? `
@@ -937,7 +937,7 @@ function sessionsView() {
   const activeSessions = sessions.filter((item) => item.estado !== "cerrada demo");
   const currentSession = activeSessions.find((item) => item.actual);
   const message = state.sessionMessage
-    ? `<p class="form-${state.sessionMessage.type}" role="alert">${state.sessionMessage.text}</p>`
+    ? `<p class="form-${state.sessionMessage.type}" role="alert" aria-live="polite">${state.sessionMessage.text}</p>`
     : "";
 
   return `
@@ -1011,7 +1011,7 @@ function personalDataView() {
   const telefono = escapeHtml(user.telefono);
   const claveUnicaEstado = escapeHtml(user.claveUnicaEstado || "activa demo");
   const message = state.personalDataMessage
-    ? `<p class="form-${state.personalDataMessage.type}" role="alert">${state.personalDataMessage.text}</p>`
+    ? `<p class="form-${state.personalDataMessage.type}" role="alert" aria-live="polite">${state.personalDataMessage.text}</p>`
     : "";
 
   return `
@@ -1049,7 +1049,7 @@ function personalDataView() {
           </div>
           <div class="form-field security-factor-field">
             <label for="personal-security-code">Factor de seguridad simulado</label>
-            <input id="personal-security-code" name="factor" type="text" inputmode="numeric" maxlength="6" placeholder="Codigo demo" required>
+            <input id="personal-security-code" name="factor" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="Codigo demo" required>
           </div>
         </div>
         ${message}

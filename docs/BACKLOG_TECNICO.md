@@ -10,7 +10,8 @@ Fuente: `project/runs/RUN-22673eb11025/traceability-matrix.md`.
 - Prioridad: alta.
 - Dependencias: ninguna identificada en la matriz.
 - Archivos sugeridos a crear: `src/portal_publico/`, `tests/portal_publico/`.
-- Estado inicial: pendiente.
+- Estado: implementado en prototipo local.
+- Nota: existe portal publico visual/mock con accesos a inicio, ayuda, novedades, activacion, recuperacion e inicio de sesion; no incluye backend ni integracion real con ClaveUnica.
 
 ## 2. Login y 2FA
 
@@ -86,7 +87,8 @@ Fuente: `project/runs/RUN-22673eb11025/traceability-matrix.md`.
 - Prioridad: alta.
 - Dependencias: módulos funcionales implementados.
 - Archivos sugeridos a crear: `tests/frontend/`, `tests/accesibilidad/`, `docs/evidencias/`.
-- Estado inicial: pendiente.
+- Estado: implementado parcialmente en prototipo local.
+- Nota: existen pruebas estaticas frontend para cobertura funcional, accesibilidad basica, foco visible, responsividad y seguridad demo; tambien se agrego evidencia documental. Quedan pendientes pruebas E2E con navegador estable, auditoria WCAG formal y validacion con usuarios/tecnologias asistivas.
 
 ## 9. Garantía y evidencia
 
@@ -96,4 +98,5 @@ Fuente: `project/runs/RUN-22673eb11025/traceability-matrix.md`.
 - Prioridad: alta.
 - Dependencias: Calidad, accesibilidad y pruebas.
 - Archivos sugeridos a crear: `docs/evidencias/garantia/`, `tests/garantia/`.
-- Estado inicial: pendiente.
+- Estado: implementado parcialmente en prototipo local.
+- Nota: se documento evidencia de calidad, funcionamiento y seguridad demo para el prototipo estatico. Quedan pendientes metricas de rendimiento, compatibilidad amplia de navegadores, hardening productivo, backend real y monitoreo/estabilidad operacional.

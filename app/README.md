@@ -107,6 +107,19 @@ Estados disponibles: `pendiente`, `aprobada`, `rechazada` y `revocada`. Las acci
 
 Las autorizaciones se cargan desde `app/mocks/authorizations.json` y los cambios de estado usan solo `sessionStorage` del navegador. No usa autorizaciones reales, no muestra datos sensibles reales, no tiene validez legal, no conecta servicios reales del Estado, no guarda cambios en backend y no es una funcionalidad lista para produccion.
 
+## QA y accesibilidad estatica
+
+El ciclo `agent.qa_accessibility_static` agrega validaciones estaticas de accesibilidad basica, responsividad y seguridad demo. La revision cubre estructura semantica, headings, labels, botones reales, mensajes con `role="alert"`/`aria-live`, foco visible, reglas responsive y ausencia de integraciones reales.
+
+Comandos recomendados desde la raiz del repositorio:
+
+```powershell
+python -m pytest -q tests -p no:cacheprovider --basetemp=.pytest-basetemp
+node --check app/frontend/app.js
+```
+
+La validacion manual depende de que el entorno permita abrir el portal en `http://localhost:8000/frontend/`. Si la superficie de navegador bloquea o expira localhost, no debe registrarse evidencia visual inventada; se debe reportar como pendiente por limitacion del entorno.
+
 ## Alcance y seguridad
 
 - La autenticación es simulada y sólo sirve para validar el flujo visual/local.
