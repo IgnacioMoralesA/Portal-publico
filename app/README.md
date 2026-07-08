@@ -104,7 +104,7 @@ node --check app/frontend/app.js
 
 Resultado vigente registrado: `55 passed`; `node --check` sin errores.
 
-La suite backend vive en `tests/backend/` y valida salud, estado, login, OTP, recursos principales, esquema minimo de 40 tablas, 115 CHECK constraints, seed ficticio y ausencia de URLs/secretos reales.
+La suite backend vive en `tests/backend/` y valida salud, estado, login, OTP, inventario minimo de API, recursos principales, esquema minimo de 40 tablas, 115 CHECK constraints, seed ficticio y ausencia de URLs/secretos reales.
 
 ## Alcance y seguridad
 
@@ -114,5 +114,6 @@ La suite backend vive en `tests/backend/` y valida salud, estado, login, OTP, re
 - `sessionStorage` es solo estado demo/local del navegador.
 - No hay validez legal, operacional ni productiva.
 - Backend/API es local/mock con SQLite local.
-- Siguen pendientes 40 endpoints totales, cobertura 100% y deploy Linux EC2 AWS.
+- Criterio de 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
+- Siguen pendientes cobertura 100% y deploy Linux EC2 AWS.
 - Criterios de 40 tablas y 100 CHECK/validaciones SQL: cumplidos en backend local/mock.

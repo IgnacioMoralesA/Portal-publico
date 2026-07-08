@@ -8,7 +8,7 @@ El run base validado es `project/runs/RUN-22673eb11025`, con estado `complete`, 
 
 El prototipo publico/privado esta implementado como frontend estatico local. Permite recorrer portal publico, login simulado, OTP/2FA simulado, dashboard, datos personales, sesiones, DDU, notificaciones, autorizaciones y cierre de sesion.
 
-El ciclo `database_40_tables_and_check_constraints_expansion` deja una API FastAPI local/mock con SQLite local, seed ficticio, routers iniciales, 40 tablas y 115 CHECK constraints. Este proyecto no esta listo para produccion. No conecta ClaveUnica real, CasillaUnica real, Plataforma de Notificaciones real ni servicios externos. Usa datos ficticios, mocks locales, SQLite local y `sessionStorage` solo para estado demo/local.
+El ciclo `api_40_endpoints_expansion` deja una API FastAPI local/mock con SQLite local, seed ficticio, 55 endpoints metodo+ruta bajo `/api/`, 40 tablas y 115 CHECK constraints. Este proyecto no esta listo para produccion. No conecta ClaveUnica real, CasillaUnica real, Plataforma de Notificaciones real ni servicios externos. Usa datos ficticios, mocks locales, SQLite local y `sessionStorage` solo para estado demo/local.
 
 ## Estructura resumida
 
@@ -68,7 +68,7 @@ Verificacion de import sin servidor persistente:
 python -m app.backend.main
 ```
 
-Endpoints base: `/health`, `/api/status`, `/api/auth/login`, `/api/auth/verify-otp`, `/api/users/me`, `/api/ddu/status`, `/api/sessions`, `/api/notifications`, `/api/authorizations`.
+Endpoints base y ampliados: salud/estado, auth demo, usuarios, sesiones, dispositivos, DDU, notificaciones, autorizaciones, instituciones, integraciones, portal publico, ayuda, auditoria, evidencia, reglas, pantallas y objetivos de despliegue. Inventario actual: 55 endpoints metodo+ruta bajo `/api/`, mas `/health`.
 
 ## Como probar
 
@@ -79,13 +79,13 @@ python -m pytest -q tests -p no:cacheprovider --basetemp=.pytest-basetemp
 node --check app/frontend/app.js
 ```
 
-Resultado vigente registrado: `55 passed`; `node --check` sin errores.
+Resultado vigente registrado tras expansion API: `71 passed`; `node --check` sin errores.
 
 El ciclo backend agrega pruebas en `tests/backend/`; el resultado vigente debe verificarse ejecutando la suite completa.
 
 ## Brechas del criterio minimo
 
-- Faltan 31 endpoints para completar 40.
+- Criterio de 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
 - Criterio de 40 tablas: cumplido.
 - Criterio de 100 CHECK: cumplido con 115 constraints.
 - Falta checklist de producto final actualizado a todos los criterios.

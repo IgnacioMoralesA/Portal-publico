@@ -31,7 +31,7 @@ Verificacion sin dejar servidor colgado:
 python -m app.backend.main
 ```
 
-## Endpoints iniciales
+## Endpoints locales/mock
 
 | Metodo | Ruta | Descripcion |
 |---|---|---|
@@ -44,6 +44,8 @@ python -m app.backend.main
 | GET | `/api/sessions` | Sesiones demo |
 | GET | `/api/notifications` | Notificaciones demo |
 | GET | `/api/authorizations` | Autorizaciones demo |
+
+La expansion `api_40_endpoints_expansion` registra 55 endpoints metodo+ruta bajo `/api/` sobre FastAPI local/mock. Cubre auth demo, perfil/contacto, sesiones, dispositivos, DDU, notificaciones, autorizaciones, instituciones, integraciones, portal publico, ayuda, auditoria, evidencia, reglas, pantallas y objetivos de despliegue. Todos usan datos ficticios o SQLite local; no conectan servicios reales.
 
 ## Base de datos
 
@@ -58,7 +60,7 @@ Estado del esquema local/mock:
 
 ## Brechas pendientes
 
-- Faltan 31 endpoints para llegar a 40.
+- Criterio de 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
 - Criterio de 40 tablas: cumplido.
 - Criterio de 100 CHECK: cumplido.
 - Falta cobertura automatizada 100%.

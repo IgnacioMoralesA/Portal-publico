@@ -36,6 +36,39 @@ class VerifyOtpOut(BaseModel):
     token: str | None = None
 
 
+class DemoFactorIn(BaseModel):
+    otp: str
+
+
+class ToggleFactorIn(BaseModel):
+    factor_type: str
+    enabled: bool
+
+
+class RecoveryRequestIn(BaseModel):
+    username: str
+    channel: str = "email"
+
+
+class RecoveryConfirmIn(BaseModel):
+    recovery_id: str
+    otp: str
+
+
+class ContactPatchIn(BaseModel):
+    correo: str | None = None
+    telefono: str | None = None
+    otp: str
+
+
+class SecurityQuestionVerifyIn(BaseModel):
+    answer: str
+
+
+class TrustDeviceIn(BaseModel):
+    remember_device: bool = True
+
+
 class UserMeOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
