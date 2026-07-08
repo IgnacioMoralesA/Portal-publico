@@ -63,5 +63,10 @@ Estado del esquema local/mock:
 - Criterio de 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
 - Criterio de 40 tablas: cumplido.
 - Criterio de 100 CHECK: cumplido.
+- Criterio de 10 casos de uso: cumplido con `docs/USE_CASE_CATALOG.md`.
+- Criterio de 30 funcionalidades/flujos: cumplido con `docs/FUNCTIONAL_FLOW_CATALOG.md`.
+- Criterio de 30 pantallas: cumplido con `docs/SCREEN_INVENTORY.md`.
+- Criterio de 60 reglas de negocio: cumplido con `docs/BUSINESS_RULES_CATALOG.md`.
+- Checklist de completitud: cumplido con `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`.
 - Falta cobertura automatizada 100%.
 - Falta despliegue online en Linux sobre EC2 AWS.

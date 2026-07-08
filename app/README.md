@@ -115,5 +115,10 @@ La suite backend vive en `tests/backend/` y valida salud, estado, login, OTP, in
 - No hay validez legal, operacional ni productiva.
 - Backend/API es local/mock con SQLite local.
 - Criterio de 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
+- Criterio de 10 casos de uso: cumplido con `docs/USE_CASE_CATALOG.md`.
+- Criterio de 30 funcionalidades/flujos: cumplido con `docs/FUNCTIONAL_FLOW_CATALOG.md`.
+- Criterio de 30 pantallas: cumplido con `docs/SCREEN_INVENTORY.md`.
+- Criterio de 60 reglas de negocio: cumplido con `docs/BUSINESS_RULES_CATALOG.md`.
+- Checklist de completitud: cumplido con `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`.
 - Siguen pendientes cobertura 100% y deploy Linux EC2 AWS.
 - Criterios de 40 tablas y 100 CHECK/validaciones SQL: cumplidos en backend local/mock.

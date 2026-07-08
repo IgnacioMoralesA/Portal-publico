@@ -83,12 +83,26 @@ Resultado vigente registrado tras expansion API: `71 passed`; `node --check` sin
 
 El ciclo backend agrega pruebas en `tests/backend/`; el resultado vigente debe verificarse ejecutando la suite completa.
 
+## Cumplimiento de criterios minimos
+
+- Documento de especificacion minimo 6 paginas: cumplido con `docs/SYSTEM_SPECIFICATION.md`.
+- 10 casos de uso: cumplido con 12 casos en `docs/USE_CASE_CATALOG.md`.
+- 30 funcionalidades/flujos: cumplido con 44 flujos en `docs/FUNCTIONAL_FLOW_CATALOG.md`.
+- 30 pantallas: cumplido con 35 pantallas/vistas/estados en `docs/SCREEN_INVENTORY.md`.
+- 60 reglas de negocio: cumplido con 64 reglas en `docs/BUSINESS_RULES_CATALOG.md`.
+- Checklist de completitud: cumplido con `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`.
+- 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
+- 40 tablas: cumplido.
+- 100 CHECK: cumplido con 115 constraints.
+- Cobertura automatizada 100%: pendiente.
+- Deploy online en Linux EC2 AWS: pendiente.
+
 ## Brechas del criterio minimo
 
 - Criterio de 40 endpoints API: cumplido con 55 endpoints metodo+ruta bajo `/api/`.
 - Criterio de 40 tablas: cumplido.
 - Criterio de 100 CHECK: cumplido con 115 constraints.
-- Falta checklist de producto final actualizado a todos los criterios.
+- Criterios documentales de casos de uso, flujos, pantallas, reglas y checklist: cumplidos.
 - Falta cobertura automatizada 100%.
 - Falta deploy online en Linux EC2 AWS.
 
@@ -105,6 +119,12 @@ Documentos principales:
 - `docs/FINAL_HANDOFF.md`
 - `docs/EVALUATOR_GUIDE.md`
 - `docs/TECHNICAL_REVIEW_GUIDE.md`
+- `docs/SYSTEM_SPECIFICATION.md`
+- `docs/USE_CASE_CATALOG.md`
+- `docs/FUNCTIONAL_FLOW_CATALOG.md`
+- `docs/SCREEN_INVENTORY.md`
+- `docs/BUSINESS_RULES_CATALOG.md`
+- `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`
 
 ## Riesgos residuales
 

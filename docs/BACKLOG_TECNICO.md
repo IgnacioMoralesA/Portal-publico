@@ -103,3 +103,13 @@ Estado final del ciclo: prototipo funcional local/sandbox cerrado documentalment
 - Estado: base API y esquema minimo cumplidos en ciclos `database_40_tables_and_check_constraints_expansion` y `api_40_endpoints_expansion`.
 - Evidencia: `app/backend/`, `tests/backend/test_api_endpoint_inventory.py`, `tests/backend/test_database_schema.py`, `tests/backend/test_database_constraints.py`, `tests/backend/test_seed_data.py`, `docs/SCOPE_COMPLIANCE_MATRIX.md`.
 - Nota: no conecta ClaveUnica real, CasillaUnica real ni Plataforma de Notificaciones real. Persisten brechas de cobertura 100% y deploy Linux EC2 AWS.
+
+## 11. Catalogos formales de alcance
+
+- Objetivo: consolidar evidencia documental para criterios minimos de casos de uso, flujos, pantallas, reglas de negocio y checklist.
+- Funcionalidades: especificacion sistemica, catalogo de casos de uso, catalogo de flujos, inventario de pantallas, catalogo de reglas de negocio, checklist de completitud y prueba estatica documental.
+- Criterios de aceptacion: existen 12 casos de uso, 44 flujos, 35 pantallas, 64 reglas de negocio y checklist con estados permitidos; se mantienen cumplidos 40 tablas, 40 endpoints API y 100 CHECK.
+- Prioridad: alta.
+- Estado: implementado documentalmente en ciclo `use_cases_screens_business_rules_and_completion_catalog`.
+- Evidencia: `docs/SYSTEM_SPECIFICATION.md`, `docs/USE_CASE_CATALOG.md`, `docs/FUNCTIONAL_FLOW_CATALOG.md`, `docs/SCREEN_INVENTORY.md`, `docs/BUSINESS_RULES_CATALOG.md`, `docs/PRODUCT_COMPLETENESS_CHECKLIST.md`, `tests/test_scope_catalogs_static.py`.
+- Nota: cobertura automatizada 100% y deploy Linux EC2 AWS siguen pendientes. No se afirma produccion ni integracion real.
