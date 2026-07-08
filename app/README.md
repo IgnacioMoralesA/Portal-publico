@@ -1,6 +1,12 @@
 # Prototipo web local
 
-Prototipo estático del Portal Ciudadano de ClaveÚnica, basado en `project/runs/RUN-22673eb11025`.
+Prototipo estatico del Portal Ciudadano de ClaveUnica, basado en `project/runs/RUN-22673eb11025`.
+
+## Estado actual
+
+Incluye portal publico, login simulado, OTP/2FA simulado, dashboard privado, datos personales, sesiones, DDU, notificaciones, autorizaciones y cierre de sesion. Carga mocks locales desde `app/mocks/` y usa `sessionStorage` solo para estado demo/local cuando aplica.
+
+Ademas existe una API FastAPI local/mock en `app/backend/` con SQLite local y datos ficticios equivalentes a los mocks actuales. No usa backend real productivo, ClaveUnica real, CasillaUnica real, Plataforma de Notificaciones real ni servicios externos y no conecta servicios externos. No es produccion.
 
 ## Abrir localmente
 
@@ -16,7 +22,27 @@ Luego abrir:
 http://localhost:8000/frontend/
 ```
 
-El prototipo carga mocks locales desde `app/mocks/`. Por restricciones normales del navegador, debe abrirse mediante un servidor HTTP local para que `fetch()` pueda leer esos archivos.
+El prototipo debe abrirse mediante un servidor HTTP local para que `fetch()` pueda leer los mocks.
+
+## Levantar backend local/mock
+
+Desde la raiz del repositorio:
+
+```powershell
+python -m uvicorn app.backend.main:app --reload
+```
+
+API:
+
+```text
+http://localhost:8000
+```
+
+Prueba rapida sin servidor persistente:
+
+```powershell
+python -m app.backend.main
+```
 
 ## Acceso demo
 
@@ -24,107 +50,68 @@ El prototipo carga mocks locales desde `app/mocks/`. Por restricciones normales 
 - Clave demo: `DemoLocal2026`
 - Codigo OTP demo: `123456`
 
+## Recorrido recomendado
+
+1. Portal publico: inicio, ayuda, novedades, activar, recuperar e iniciar sesion.
+2. Login: probar credenciales incorrectas y luego credenciales demo.
+3. 2FA: probar OTP incorrecto y luego `123456`.
+4. Dashboard: revisar resumen privado y accesos.
+5. Datos personales: editar correo/telefono ficticios con factor demo.
+6. Sesiones: revisar sesiones mock y cerrar una sesion remota simulada.
+7. DDU: cancelar, volver, completar configuracion demo y revisar retorno.
+8. Notificaciones: validar bloqueo con DDU pendiente, listado, detalle y marcado como leida.
+9. Autorizaciones: aprobar, rechazar o revocar con factor demo.
+10. Cerrar sesion.
+
 ## Datos personales demo
 
-Para probar el modulo privado:
-
-1. Iniciar sesion con las credenciales demo.
-2. Completar el OTP demo `123456`.
-3. Entrar a `Datos personales` desde el dashboard.
-4. Cambiar correo y/o telefono.
-5. Probar un factor incorrecto y verificar que no se guarden cambios.
-6. Usar el factor de seguridad demo `123456` y verificar el mensaje de exito.
-7. Volver al dashboard y cerrar sesion.
-
-El cambio de correo y telefono es local y simulado en la vista del prototipo. No se guarda en backend, no usa servicios reales de ClaveUnica y no debe utilizar datos personales reales.
+El cambio de correo y telefono es local y simulado. Para guardarlo se usa el factor de seguridad demo `123456`. No se guarda en backend y no usa servicios reales de ClaveUnica.
 
 ## Sesiones demo
 
-Para probar el modulo privado:
-
-1. Iniciar sesion con las credenciales demo.
-2. Completar el OTP demo `123456`.
-3. Entrar a `Sesiones` desde el dashboard.
-4. Revisar la sesion actual y las sesiones remotas mock.
-5. Cerrar una sesion remota y verificar el mensaje de exito.
-6. Confirmar que la sesion remota cambia a estado `cerrada demo`.
-7. Volver al dashboard y cerrar sesion con el boton general.
-
-Las sesiones son simuladas y se cargan desde `app/mocks/sessions.json`. La gestion es local del prototipo: no persiste sesiones reales, no usa ubicaciones reales, no usa IPs reales, no usa servicios reales de ClaveUnica y no hay proteccion real productiva contra secuestro de sesion. La pantalla solo representa una simulacion de politica de multisesion para validacion visual/local.
+Las sesiones son simuladas y se cargan desde `app/mocks/sessions.json`. no hay proteccion real productiva contra secuestro de sesion y no usa servicios reales.
 
 ## DDU demo
 
-Estado inicial demo: Domicilio Digital Unico pendiente/no configurado, cargado desde `app/mocks/ddu.json`.
-
-Para probar el modulo privado:
-
-1. Iniciar sesion con las credenciales demo.
-2. Completar el OTP demo `123456`.
-3. Entrar a `DDU` desde el dashboard.
-4. Verificar la alerta de configuracion pendiente.
-5. Presionar `Iniciar configuracion DDU` y cancelar desde el modal; el estado debe seguir pendiente.
-6. Iniciar configuracion nuevamente y continuar a la pasarela simulada.
-7. Cancelar dentro de la pasarela y confirmar la cancelacion; se retorna a DDU y el estado sigue pendiente.
-8. Iniciar configuracion nuevamente y completar la configuracion demo.
-9. Verificar el mensaje de retorno al portal y que el dashboard muestra DDU configurado.
-10. Abrir DDU configurado y revisar el acceso preparado hacia Notificaciones.
-
-El flujo DDU es visual/mock y usa solo estado demo/local del navegador mediante `sessionStorage`. No usa CasillaUnica real, no configura DDU real, no conecta Plataforma de Notificaciones real, no usa backend productivo y no debe probarse con domicilio, correo o telefono reales. No es una funcionalidad lista para produccion.
+Estado inicial demo: DDU pendiente/no configurado. El recorrido permite cancelar desde el modal, continuar a una pasarela simulada, cancelar o completar la configuracion demo. No usa CasillaUnica real, no configura DDU real y No es una funcionalidad lista para produccion.
 
 ## Notificaciones demo
 
-Para probar el modulo privado:
-
-1. Iniciar sesion con las credenciales demo.
-2. Completar el OTP demo `123456`.
-3. Entrar a `Notificaciones` desde el dashboard con DDU pendiente y verificar la alerta que exige configurar DDU.
-4. Usar el acceso `Ir a DDU`, completar la configuracion DDU demo y volver al dashboard.
-5. Entrar nuevamente a `Notificaciones`.
-6. Ver el listado mock de notificaciones pendientes de lectura con fecha ficticia, institucion ficticia, titulo, estado, prioridad y categoria.
-7. Abrir el detalle de una notificacion.
-8. Verificar el aviso de derivacion simulada/local a CasillaUnica.
-9. Marcar la notificacion como leida y volver al listado.
-10. Verificar que el contador/estado visual de pendientes se actualiza en el listado y dashboard.
-
-Las notificaciones se cargan desde `app/mocks/notifications.json` y el marcado como leida usa solo `sessionStorage` del navegador. No usa CasillaUnica real, no usa Plataforma de Notificaciones real, no usa notificaciones reales, no abre URLs productivas, no guarda cambios en backend y no es una funcionalidad lista para produccion.
+Con DDU pendiente se bloquea el listado. Luego de configurar DDU demo, se muestra un listado mock de notificaciones pendientes. Abrir el detalle permite revisar contenido local seguro y luego Marcar la notificacion como leida. No usa CasillaUnica real, no usa notificaciones reales y no es una funcionalidad lista para produccion.
 
 ## Autorizaciones demo
 
-Para probar el modulo privado:
+Permite revisar resumen por estados, aprobar o rechazar solicitudes pendientes, y revocarla cuando esta vigente con factor demo `123456`. No usa autorizaciones reales, no muestra datos sensibles reales y no es una funcionalidad lista para produccion.
 
-1. Iniciar sesion con las credenciales demo.
-2. Completar el OTP demo `123456`.
-3. Entrar a `Autorizaciones` desde el dashboard.
-4. Revisar el resumen por estados: pendientes, aprobadas/vigentes, rechazadas y revocadas.
-5. Abrir el detalle de una autorizacion pendiente.
-6. Intentar aprobar o rechazar con un factor incorrecto y verificar el mensaje de error.
-7. Usar el factor demo `123456` para aprobar o rechazar y verificar el cambio de estado e historial local.
-8. Abrir una autorizacion aprobada/vigente, usar el factor demo `123456` y revocarla.
-9. Verificar que las autorizaciones rechazadas o revocadas quedan en solo lectura.
-10. Volver al dashboard y cerrar sesion.
+## Documentacion relacionada
 
-Estados disponibles: `pendiente`, `aprobada`, `rechazada` y `revocada`. Las acciones de aprobar, rechazar y revocar exigen factor demo obligatorio `123456`.
-
-Las autorizaciones se cargan desde `app/mocks/authorizations.json` y los cambios de estado usan solo `sessionStorage` del navegador. No usa autorizaciones reales, no muestra datos sensibles reales, no tiene validez legal, no conecta servicios reales del Estado, no guarda cambios en backend y no es una funcionalidad lista para produccion.
+- `docs/SAFE_DEMO_SCRIPT.md`
+- `docs/PROTOTYPE_EVIDENCE.md`
+- `docs/FINAL_PROTOTYPE_REPORT.md`
+- `docs/FINAL_HANDOFF.md`
+- `docs/EVALUATOR_GUIDE.md`
+- `docs/SCOPE_COMPLIANCE_MATRIX.md`
+- `app/backend/README.md`
 
 ## QA y accesibilidad estatica
 
-El ciclo `agent.qa_accessibility_static` agrega validaciones estaticas de accesibilidad basica, responsividad y seguridad demo. La revision cubre estructura semantica, headings, labels, botones reales, mensajes con `role="alert"`/`aria-live`, foco visible, reglas responsive y ausencia de integraciones reales.
-
-Comandos recomendados desde la raiz del repositorio:
+Desde la raiz:
 
 ```powershell
 python -m pytest -q tests -p no:cacheprovider --basetemp=.pytest-basetemp
 node --check app/frontend/app.js
 ```
 
-La validacion manual depende de que el entorno permita abrir el portal en `http://localhost:8000/frontend/`. Si la superficie de navegador bloquea o expira localhost, no debe registrarse evidencia visual inventada; se debe reportar como pendiente por limitacion del entorno.
+Resultado final registrado: `35 passed`; `node --check` sin errores.
+
+La suite backend inicial vive en `tests/backend/` y valida salud, estado, login, OTP, recursos principales y ausencia de URLs/secretos reales.
 
 ## Alcance y seguridad
 
-- La autenticación es simulada y sólo sirve para validar el flujo visual/local.
-- No usa ClaveÚnica real.
-- No usa backend real.
-- No conecta servicios externos, Plataforma de Notificaciones ni CasillaÚnica real.
-- No debe usarse ni presentarse como sistema listo para producción.
-- El uso de `sessionStorage` corresponde sólo a estado demo/local del navegador.
+- Autenticacion y OTP son simulados.
+- No usar datos personales reales.
+- No hay persistencia productiva.
+- `sessionStorage` es solo estado demo/local del navegador.
+- No hay validez legal, operacional ni productiva.
+- Backend/API es local/mock con SQLite local.
+- Siguen pendientes 40 endpoints totales, 40 tablas totales, 100 CHECK/validaciones totales, cobertura 100% y deploy Linux EC2 AWS.

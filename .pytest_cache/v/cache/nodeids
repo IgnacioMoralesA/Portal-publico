@@ -1,0 +1,5 @@
+[
+  "tests/test_factory.py::test_context_pack_budget",
+  "tests/test_factory.py::test_registry_has_token_economizer",
+  "tests/test_factory.py::test_run_project_creates_artifacts"
+]

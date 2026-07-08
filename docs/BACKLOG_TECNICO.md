@@ -1,102 +1,105 @@
-# Backlog técnico
+# Backlog tecnico
 
-Fuente: `project/runs/RUN-22673eb11025/traceability-matrix.md`.
+Fuente base: `project/runs/RUN-22673eb11025/traceability-matrix.md`.
 
-## 1. Portal público
+Estado final del ciclo: prototipo funcional local/sandbox cerrado documentalmente. Los modulos estan implementados en frontend estatico con mocks y pruebas estaticas; no hay backend real ni integraciones reales.
 
-- Objetivo: habilitar los accesos públicos principales del servicio.
-- Funcionalidades: activar cuenta; autenticar; recuperar acceso; ayuda; novedades.
-- Criterios de aceptación: existen accesos para activar, autenticar, recuperar, ayuda y novedades; el flujo queda trazado a S06:HU01 y S08:CU_001.
+## 1. Portal publico
+
+- Objetivo: habilitar accesos publicos principales del servicio.
+- Funcionalidades: activar cuenta, autenticar, recuperar acceso, ayuda y novedades.
+- Criterios de aceptacion: existen accesos para activar, autenticar, recuperar, ayuda y novedades; el flujo queda trazado a S06:HU01 y S08:CU_001.
 - Prioridad: alta.
-- Dependencias: ninguna identificada en la matriz.
-- Archivos sugeridos a crear: `src/portal_publico/`, `tests/portal_publico/`.
 - Estado: implementado en prototipo local.
-- Nota: existe portal publico visual/mock con accesos a inicio, ayuda, novedades, activacion, recuperacion e inicio de sesion; no incluye backend ni integracion real con ClaveUnica.
+- Evidencia: `app/frontend/index.html`, `app/frontend/app.js`, `docs/PROTOTYPE_EVIDENCE.md`, `tests/frontend/test_login_2fa_static.py`.
+- Nota: portal visual/mock sin backend ni integracion real con ClaveUnica.
 
 ## 2. Login y 2FA
 
-- Objetivo: permitir autenticación con segundo factor opcional cuando corresponda.
-- Funcionalidades: activación opcional de 2FA; exigencia de 2FA al login si está activo.
-- Criterios de aceptación: el usuario puede activar 2FA; el login exige 2FA solo cuando está activo; el flujo queda trazado a S06:HU03 y S08:CU_003.
+- Objetivo: permitir autenticacion con segundo factor demo.
+- Funcionalidades: login simulado, credenciales demo, OTP demo obligatorio cuando el usuario mock tiene segundo factor activo.
+- Criterios de aceptacion: login y OTP demo permiten llegar al dashboard; flujo trazado a S06:HU03 y S08:CU_003.
 - Prioridad: alta.
-- Dependencias: Portal público.
-- Archivos sugeridos a crear: `src/auth/`, `src/security/2fa/`, `tests/auth/`.
-- Estado: implementado parcialmente en prototipo local.
-- Nota: existe flujo visual/mock de login y verificación OTP con datos locales; no incluye backend, integración real con ClaveÚnica ni servicios externos.
+- Estado: implementado en prototipo local.
+- Evidencia: `app/mocks/user.json`, `app/frontend/app.js`, `docs/PROTOTYPE_EVIDENCE.md`, `tests/frontend/test_login_2fa_static.py`.
+- Nota: no incluye backend, OAuth/OIDC/SAML, ClaveUnica real ni servicios externos.
 
 ## 3. Datos personales
 
-- Objetivo: gestionar cambios de datos de contacto con control de seguridad.
-- Funcionalidades: cambio de teléfono; cambio de correo; validación mediante factor de seguridad.
-- Criterios de aceptación: teléfono y correo pueden modificarse solo con factor de seguridad; el flujo queda trazado a S06:HU02 y S08:CU_002.
+- Objetivo: gestionar cambios de datos de contacto con control de seguridad demo.
+- Funcionalidades: cambio local de telefono y correo; validacion mediante factor demo.
+- Criterios de aceptacion: telefono y correo pueden modificarse solo con factor demo; flujo trazado a S06:HU02 y S08:CU_002.
 - Prioridad: alta.
-- Dependencias: Login y 2FA.
-- Archivos sugeridos a crear: `src/datos_personales/`, `tests/datos_personales/`.
 - Estado: implementado en prototipo local.
-- Nota: existe flujo visual/mock para ver y editar correo y telefono con factor de seguridad demo; no incluye backend ni integracion real con ClaveUnica.
+- Evidencia: `app/frontend/app.js`, `app/mocks/user.json`, `tests/frontend/test_personal_data_static.py`.
+- Nota: los cambios viven solo en memoria de la sesion de navegador; usan factor de seguridad demo y no deben usar datos reales.
 
-## 4. Sesiones y multisesión
+## 4. Sesiones y multisesion
 
-- Objetivo: aplicar política de multisesión y mitigación de secuestro de sesión.
-- Funcionalidades: control de multisesión; mitigación de secuestro de sesión.
-- Criterios de aceptación: existe política de multisesión aplicada; se incorporan controles contra secuestro de sesión; el flujo queda trazado a S06:HU04 y S08:CU_004.
+- Objetivo: representar politica de multisesion y mitigacion conceptual de secuestro.
+- Funcionalidades: sesion actual, sesiones remotas mock, cierre remoto simulado y advertencias.
+- Criterios de aceptacion: existe lista de sesiones, identificacion de sesion actual y cierre remoto simulado; flujo trazado a S06:HU04 y S08:CU_004.
 - Prioridad: alta.
-- Dependencias: Login y 2FA.
-- Archivos sugeridos a crear: `src/sesiones/`, `tests/sesiones/`.
 - Estado: implementado en prototipo local.
-- Nota: existe gestion de sesiones activa ficticia con sesion actual, sesiones remotas mock, advertencia de multisesion y cierre remoto simulado; no incluye backend, persistencia real, IPs reales, ubicaciones reales, integracion real con ClaveUnica ni proteccion productiva contra secuestro de sesion.
+- Evidencia: `app/mocks/sessions.json`, `app/frontend/app.js`, `tests/frontend/test_sessions_static.py`.
+- Nota: existe gestion de sesiones activa ficticia; no hay proteccion productiva real, IPs reales, ubicaciones reales ni persistencia real.
 
-## 5. DDU / Domicilio Digital Único
+## 5. DDU / Domicilio Digital Unico
 
-- Objetivo: implementar la derivación y gestión del Domicilio Digital Único.
-- Funcionalidades: derivación; cancelación; retorno; alerta pendiente.
-- Criterios de aceptación: se soportan derivación, cancelación, retorno y alerta pendiente; el flujo queda trazado a S06:HU05-HU12, S07 y S08:CU_005-CU_012.
+- Objetivo: representar derivacion y gestion del DDU.
+- Funcionalidades: alerta pendiente, modal, pasarela simulada, cancelacion, retorno y configuracion demo.
+- Criterios de aceptacion: soporta derivacion, cancelacion, retorno y alerta pendiente; flujo trazado a S06:HU05-HU12, S07 y S08:CU_005-CU_012.
 - Prioridad: alta.
-- Dependencias: Login y 2FA; Notificaciones / CasillaÚnica.
-- Archivos sugeridos a crear: `src/ddu/`, `tests/ddu/`.
 - Estado: implementado en prototipo local.
-- Nota: existe flujo visual/mock de DDU con estado pendiente/configurado, alerta pendiente, modal de confirmacion, pasarela simulada, cancelacion, retorno al portal y acceso preparado hacia Notificaciones; no incluye backend, persistencia real, integracion real con ClaveUnica, CasillaUnica ni Plataforma de Notificaciones.
+- Evidencia: `app/mocks/ddu.json`, `app/frontend/app.js`, `tests/frontend/test_ddu_static.py`.
+- Nota: usa `sessionStorage` para estado DDU demo; no configura DDU real ni conecta CasillaUnica.
 
-## 6. Notificaciones / CasillaÚnica
+## 6. Notificaciones / CasillaUnica
 
-- Objetivo: mostrar notificaciones provenientes de CasillaÚnica.
-- Funcionalidades: listado de notificaciones; detalle de notificaciones.
-- Criterios de aceptación: el usuario puede listar y ver detalle desde CasillaÚnica; el flujo queda trazado a S06:HU09-HU11 y S07.
+- Objetivo: mostrar notificaciones mock condicionadas por DDU.
+- Funcionalidades: bloqueo con DDU pendiente, listado, detalle, derivacion simulada/local y marcado como leida.
+- Criterios de aceptacion: usuario puede listar, ver detalle y marcar leida en estado local; flujo trazado a S06:HU09-HU11 y S07.
 - Prioridad: media.
-- Dependencias: Login y 2FA.
-- Archivos sugeridos a crear: `src/notificaciones/`, `tests/notificaciones/`.
 - Estado: implementado en prototipo local.
-- Nota: existe modulo visual/mock de Notificaciones con validacion de DDU pendiente/configurado, listado de pendientes, detalle local, derivacion simulada/local a CasillaUnica y marcado como leida en `sessionStorage`; no incluye backend, persistencia real, notificaciones reales, Plataforma de Notificaciones real ni CasillaUnica real.
+- Evidencia: `app/mocks/notifications.json`, `app/frontend/app.js`, `tests/frontend/test_notifications_static.py`.
+- Nota: incluye derivacion simulada/local a CasillaUnica; no hay CasillaUnica real, Plataforma de Notificaciones real ni notificaciones reales.
 
 ## 7. Autorizaciones de datos sensibles
 
-- Objetivo: gestionar autorizaciones asociadas a datos sensibles.
-- Funcionalidades: historial; pendientes; aprobación; rechazo; revocación.
-- Criterios de aceptación: se consultan historial y pendientes; se permite aprobar, rechazar y revocar; el flujo queda trazado a S06:HU13-HU16 y S08:CU_013-CU_016.
+- Objetivo: gestionar autorizaciones mock asociadas a datos sensibles genericos.
+- Funcionalidades: resumen, historial local, pendientes, aprobacion, rechazo y revocacion con factor demo.
+- Criterios de aceptacion: se consultan historial y pendientes; se permite aprobar, rechazar y revocar con factor demo; flujo trazado a S06:HU13-HU16 y S08:CU_013-CU_016.
 - Prioridad: alta.
-- Dependencias: Login y 2FA; Datos personales.
-- Archivos sugeridos a crear: `src/autorizaciones/`, `tests/autorizaciones/`.
 - Estado: implementado en prototipo local.
-- Nota: existe modulo visual/mock de Autorizaciones de datos sensibles con resumen por estado, lista, detalle, aprobacion, rechazo y revocacion con factor demo obligatorio e historial local en `sessionStorage`; no incluye backend, persistencia real, autorizaciones reales, datos sensibles reales, validez legal ni integracion con servicios del Estado.
+- Evidencia: `app/mocks/authorizations.json`, `app/frontend/app.js`, `tests/frontend/test_authorizations_static.py`.
+- Nota: mantiene historial local en `sessionStorage`; no hay datos sensibles reales, validez legal, backend ni integracion con servicios del Estado.
 
 ## 8. Calidad, accesibilidad y pruebas
 
-- Objetivo: asegurar pruebas frontend, prototipo, accesibilidad y evidencia.
-- Funcionalidades: pruebas frontend; validación de prototipo; revisión de accesibilidad; recopilación de evidencia.
-- Criterios de aceptación: existen pruebas frontend; prototipo y accesibilidad quedan revisados; la evidencia queda registrada; el módulo queda trazado a S05.
+- Objetivo: asegurar evidencia inicial de calidad del prototipo.
+- Funcionalidades: pruebas estaticas frontend, validacion manual local, revision de accesibilidad basica y seguridad demo.
+- Criterios de aceptacion: pruebas estaticas pasan; evidencia registrada; modulo trazado a S05.
 - Prioridad: alta.
-- Dependencias: módulos funcionales implementados.
-- Archivos sugeridos a crear: `tests/frontend/`, `tests/accesibilidad/`, `docs/evidencias/`.
-- Estado: implementado parcialmente en prototipo local.
-- Nota: existen pruebas estaticas frontend para cobertura funcional, accesibilidad basica, foco visible, responsividad y seguridad demo; tambien se agrego evidencia documental. Quedan pendientes pruebas E2E con navegador estable, auditoria WCAG formal y validacion con usuarios/tecnologias asistivas.
+- Estado final: implementado parcialmente.
+- Evidencia: `docs/QA_ACCESSIBILITY_REPORT.md`, `docs/FINAL_TEST_SUMMARY.md`, `tests/frontend/`.
+- Nota: quedan pendientes E2E automatizado, auditoria WCAG formal, lector de pantalla y matriz real de dispositivos/navegadores.
 
-## 9. Garantía y evidencia
+## 9. Garantia y evidencia
 
-- Objetivo: documentar y verificar la cobertura mínima de garantía.
-- Funcionalidades: calidad; funcionamiento; compatibilidad; rendimiento; seguridad; estabilidad.
-- Criterios de aceptación: la evidencia cubre calidad, funcionamiento, compatibilidad, rendimiento, seguridad y estabilidad; el módulo queda trazado a S05.
+- Objetivo: documentar cobertura de calidad, funcionamiento y seguridad demo.
+- Funcionalidades: evidencia documental, checklist final, reporte final y handoff.
+- Criterios de aceptacion: evidencia y cierre documental disponibles; modulo trazado a S05.
 - Prioridad: alta.
-- Dependencias: Calidad, accesibilidad y pruebas.
-- Archivos sugeridos a crear: `docs/evidencias/garantia/`, `tests/garantia/`.
-- Estado: implementado parcialmente en prototipo local.
-- Nota: se documento evidencia de calidad, funcionamiento y seguridad demo para el prototipo estatico. Quedan pendientes metricas de rendimiento, compatibilidad amplia de navegadores, hardening productivo, backend real y monitoreo/estabilidad operacional.
+- Estado final: implementado parcialmente.
+- Evidencia: `docs/PROTOTYPE_EVIDENCE.md`, `docs/FINAL_CHECKLIST.md`, `docs/FINAL_PROTOTYPE_REPORT.md`, `docs/FINAL_HANDOFF.md`.
+- Nota: no constituye garantia productiva real; faltan rendimiento, compatibilidad amplia, hardening, monitoreo y operacion.
+
+## 10. Backend local/API mock y base de datos
+
+- Objetivo: crear base extensible para API local y persistencia SQLite sin servicios reales.
+- Funcionalidades: health check, estado API, login demo, OTP demo, usuario actual, DDU, sesiones, notificaciones y autorizaciones.
+- Criterios de aceptacion: API FastAPI importa correctamente, crea SQLite local con seed ficticio, expone 9 endpoints iniciales y cuenta con pruebas backend minimas.
+- Prioridad: alta.
+- Estado: base inicial implementada en ciclo `backend_scope_matrix_and_api_foundation`.
+- Evidencia: `app/backend/`, `tests/backend/`, `docs/SCOPE_COMPLIANCE_MATRIX.md`.
+- Nota: no conecta ClaveUnica real, CasillaUnica real ni Plataforma de Notificaciones real. Persisten brechas de 31 endpoints, 32 tablas, 81 validaciones/CHECK, cobertura 100% y deploy Linux EC2 AWS.
